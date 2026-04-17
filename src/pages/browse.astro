@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+import { Catalog } from '../components/Catalog';
+import { projects, techOptions } from '../data/load-projects';
+---
+
+<Base title="Browse Projects">
+  <div class="bg-white border-b border-gray-200 py-6">
+    <div class="max-w-6xl mx-auto px-4">
+      <h1 class="text-2xl font-bold">Browse UNICEF Open Source Projects</h1>
+      <p class="text-gray-600 mt-1">Filter by SDG, technology, contribution type, and more</p>
+    </div>
+  </div>
+  <Catalog client:load projects={projects} techOptions={techOptions} />
+</Base>

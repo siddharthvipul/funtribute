@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  --color-unicef-blue: #1cabe2;
+  --color-unicef-dark: #374ea2;
+  --color-unicef-green: #00833d;
+  --color-unicef-yellow: #ffc20e;
+  --color-unicef-orange: #f26a21;
+  --color-unicef-red: #e2231a;
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+}

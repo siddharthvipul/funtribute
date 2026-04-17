@@ -1,0 +1,83 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Discover and contribute to UNICEF open source projects' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} | Funtribute</title>
+  </head>
+  <body class="min-h-screen flex flex-col bg-gray-50 text-gray-900 font-sans">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-unicef-blue focus:text-white focus:px-4 focus:py-2 focus:rounded"
+    >
+      Skip to main content
+    </a>
+
+    <header class="bg-white border-b border-gray-200">
+      <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+        <a href="/" class="text-xl font-bold text-unicef-dark hover:text-unicef-blue transition-colors">
+          Funtribute
+        </a>
+        <div class="hidden md:flex items-center gap-6">
+          <a href="/" class="text-gray-600 hover:text-unicef-blue transition-colors">Home</a>
+          <a href="/wizard" class="text-gray-600 hover:text-unicef-blue transition-colors">Get Started</a>
+          <a href="/browse" class="text-gray-600 hover:text-unicef-blue transition-colors">Browse</a>
+        </div>
+        <button
+          id="mobile-menu-btn"
+          class="md:hidden p-2 rounded hover:bg-gray-100"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </nav>
+      <div id="mobile-menu" class="hidden md:hidden border-t border-gray-100 px-4 py-2">
+        <a href="/" class="block py-2 text-gray-600 hover:text-unicef-blue">Home</a>
+        <a href="/wizard" class="block py-2 text-gray-600 hover:text-unicef-blue">Get Started</a>
+        <a href="/browse" class="block py-2 text-gray-600 hover:text-unicef-blue">Browse</a>
+      </div>
+    </header>
+
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 mt-auto">
+      <div class="max-w-6xl mx-auto px-4 py-8 text-center text-sm">
+        <p>Built for UNICEF Open Source</p>
+        <p class="mt-1 text-gray-500">
+          Funtribute is itself open source.
+          <a href="https://github.com/unicef/funtribute" class="underline hover:text-white">Contribute on GitHub</a>
+        </p>
+      </div>
+    </footer>
+
+    <script is:inline>
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      if (btn && menu) {
+        btn.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('hidden');
+        });
+      }
+    </script>
+  </body>
+</html>

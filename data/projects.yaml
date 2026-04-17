@@ -1,0 +1,83 @@
+- name: Primero
+  slug: primero
+  description: An application designed to help child protection workers manage data on vulnerable children and survivors of violence
+  github: primeroIMS/primero
+  website: https://www.primero.org
+  category: unicef
+  platform: github
+  sdgs: [16, 5]
+  tech: [ruby, rails, javascript, react, docker]
+  contribution_types: [code, docs, testing, translation]
+  skill_level: [intermediate, advanced]
+  tags: [child-protection, case-management, gbv]
+  good_first_issues: true
+
+- name: HOPE
+  slug: hope
+  description: UNICEF's humanitarian cash transfer platform used across more than 20 countries
+  github: unicef/hope
+  website: https://unicef.github.io/hope-documentation/
+  category: unicef
+  platform: github
+  sdgs: [1, 2, 10]
+  tech: [python, django, react, typescript, docker]
+  contribution_types: [code, docs, testing]
+  skill_level: [intermediate, advanced]
+  tags: [cash-transfer, humanitarian-aid, beneficiary-management]
+  good_first_issues: true
+
+- name: GeoSight
+  slug: geosight
+  description: An open-source geospatial web-based data visualization and analysis platform
+  github: unicef-drp/GeoSight-OS
+  website: https://unicef-drp.github.io/GeoSight-OS-Documentation/
+  category: unicef
+  platform: github
+  sdgs: [9, 11, 13, 17]
+  tech: [python, django, javascript, react, docker]
+  contribution_types: [code, docs, design, testing]
+  skill_level: [intermediate, advanced]
+  tags: [geospatial, data-visualization, mapping, gis]
+  good_first_issues: true
+
+- name: Somleng
+  slug: somleng
+  description: The world's only open source cloud communications platform (CPaaS) with a Twilio compatible API
+  github: somleng/somleng
+  website: https://www.somleng.org
+  category: venture-fund
+  platform: github
+  sdgs: [9, 11, 13]
+  tech: [ruby, rails, terraform, docker]
+  contribution_types: [code, docs, testing]
+  skill_level: [intermediate, advanced]
+  tags: [communications, early-warning, telephony, sms, voice]
+  good_first_issues: true
+
+- name: Rahat
+  slug: rahat
+  description: Blockchain-based digital relief distribution management platform for humanitarian agencies
+  github: esatya/rahat
+  website: https://rahat.io
+  category: venture-fund
+  platform: github
+  sdgs: [1, 2, 10]
+  tech: [javascript, solidity, ethereum, react, nodejs]
+  contribution_types: [code, docs, testing, community]
+  skill_level: [intermediate, advanced]
+  tags: [blockchain, aid-distribution, humanitarian-aid]
+  good_first_issues: true
+
+- name: VaccineLedger
+  slug: vaccine-ledger
+  description: Blockchain-powered vaccine supply chain tracking and verification platform
+  gitlab: statwig-public
+  website: https://statwig.com
+  category: venture-fund
+  platform: gitlab
+  sdgs: [3, 9]
+  tech: [javascript, nodejs, docker]
+  contribution_types: [code, docs, testing]
+  skill_level: [intermediate, advanced]
+  tags: [vaccine, supply-chain, blockchain, health]
+  good_first_issues: false

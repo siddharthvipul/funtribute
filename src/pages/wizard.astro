@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import { Wizard } from '../components/Wizard';
+import { projects, techOptions } from '../data/load-projects';
+---
+
+<Base title="Guided Discovery">
+  <Wizard client:load projects={projects} techOptions={techOptions} />
+</Base>

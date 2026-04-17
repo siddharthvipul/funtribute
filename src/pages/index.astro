@@ -4,6 +4,7 @@ import { projects } from '../data/load-projects';
 
 const totalIssues = projects.reduce((sum, p) => sum + p.openIssueCount, 0);
 const totalGoodFirst = projects.reduce((sum, p) => sum + p.goodFirstIssuesList.length, 0);
+const base = import.meta.env.BASE_URL;
 ---
 
 <Base title="Home">
@@ -17,13 +18,13 @@ const totalGoodFirst = projects.reduce((sum, p) => sum + p.goodFirstIssuesList.l
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
-          href="/wizard"
+          href={`${base}wizard`}
           class="inline-block bg-white text-unicef-dark font-semibold px-8 py-4 rounded-lg hover:bg-blue-50 transition-colors text-lg"
         >
           I'm new to open source
         </a>
         <a
-          href="/browse"
+          href={`${base}browse`}
           class="inline-block border-2 border-white text-white font-semibold px-8 py-4 rounded-lg hover:bg-white/10 transition-colors text-lg"
         >
           Browse projects

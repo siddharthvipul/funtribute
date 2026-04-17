@@ -259,7 +259,7 @@ export function Wizard({ projects, techOptions }: Props) {
               <div className="text-center py-12 bg-gray-50 rounded-lg">
                 <p className="text-gray-500 mb-4">Try broadening your selections or browse all projects.</p>
                 <a
-                  href="/browse"
+                  href={`${import.meta.env.BASE_URL}browse`}
                   className="inline-block bg-[#1cabe2] text-white px-6 py-2 rounded-lg hover:bg-[#1899cc] transition-colors"
                 >
                   Browse all projects

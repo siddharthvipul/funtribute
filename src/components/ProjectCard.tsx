@@ -15,7 +15,7 @@ export function ProjectCard({ project }: Props) {
     <article className="bg-white rounded-lg border border-gray-200 p-5 hover:shadow-md transition-shadow flex flex-col">
       <div className="flex items-start justify-between mb-2">
         <a
-          href={`/projects/${project.slug}`}
+          href={`${import.meta.env.BASE_URL}projects/${project.slug}`}
           className="text-lg font-semibold text-gray-900 hover:text-[#1cabe2] transition-colors"
         >
           {project.name}

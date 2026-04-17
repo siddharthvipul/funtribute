@@ -20,6 +20,8 @@ const repoUrl = project.platform === 'github'
 const contributingUrl = project.platform === 'github'
   ? `https://github.com/${project.github}/blob/main/CONTRIBUTING.md`
   : repoUrl;
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <Base title={project.name} description={project.description}>
@@ -27,7 +29,7 @@ const contributingUrl = project.platform === 'github'
     <div class="max-w-4xl mx-auto px-4 py-8">
       <div class="flex items-start justify-between mb-4">
         <div>
-          <a href="/browse" class="text-sm text-gray-500 hover:text-[#1cabe2] mb-2 inline-block">&larr; Back to projects</a>
+          <a href={`${base}browse`} class="text-sm text-gray-500 hover:text-[#1cabe2] mb-2 inline-block">&larr; Back to projects</a>
           <h1 class="text-3xl font-bold">{project.name}</h1>
         </div>
         <span class={`text-sm font-medium px-3 py-1 rounded-full ${

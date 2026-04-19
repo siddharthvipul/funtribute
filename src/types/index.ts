@@ -78,3 +78,69 @@ export interface ProjectData {
   techOptions: string[];
   lastUpdated: string;
 }
+
+export type DocStatus = 'Mandatory' | 'Recommended' | 'Not Started';
+
+export interface AudienceRow {
+  segment: string;
+  needs: string;
+  roadblocks: string;
+  value: string;
+}
+
+export interface RiseRow {
+  category: 'Recognize' | 'Incentivize' | 'Support' | 'Elevate';
+  strategy: string;
+}
+
+export interface DocRow {
+  file: string;
+  status: DocStatus | '';
+  notes: string;
+}
+
+export interface RoleRow {
+  role: string;
+  owner: string;
+  responsibilities: string;
+}
+
+export interface WorkbookState {
+  part1: {
+    projectGoal: string;
+    projectMission: string;
+    audienceRows: [AudienceRow, AudienceRow, AudienceRow];
+  };
+  part2: {
+    primaryPlatform: string;
+    realtimePlatform: string;
+    firstMembers: string;
+    initialContent: string;
+    feedbackPlan: string;
+  };
+  part3: {
+    regularContent: string;
+    recurringEvents: string;
+    discoveryChannels: string;
+    communityAsValue: string;
+    goodFirstIssueLabeling: string;
+    goodFirstIssueOwner: string;
+    initialPipeline: string;
+  };
+  part4: {
+    quantitativeMetrics: string;
+    qualitativeFeedback: string;
+    riseRows: [RiseRow, RiseRow, RiseRow, RiseRow];
+  };
+  part5: {
+    docRows: [DocRow, DocRow, DocRow, DocRow, DocRow, DocRow];
+    roadmapLink: string;
+  };
+  part6: {
+    roleRows: [RoleRow, RoleRow, RoleRow, RoleRow];
+    timeCommitment: string;
+    timeRecognition: string;
+    hasBudget: string;
+    budgetUses: string;
+  };
+}

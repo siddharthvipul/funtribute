@@ -15,6 +15,7 @@ pnpm-debug.log*
 
 # generated build data
 src/data/projects.json
+src/data/projects/
 
 # environment variables
 .env

@@ -1,12 +1,16 @@
-import type { Project } from '../types';
+import type { Project, TechIndex } from '../types';
 import { SDGBadge } from './SDGBadge';
 import { ContributionIcon } from './ContributionIcon';
 
 interface Props {
   project: Project;
+  techIndex?: TechIndex;
 }
 
-export function ProjectCard({ project }: Props) {
+export function ProjectCard({ project, techIndex }: Props) {
+  const techLabels = project.techRefs.map(
+    (ref) => techIndex?.get(ref.id)?.display ?? ref.id,
+  );
   const repoUrl = project.platform === 'github'
     ? `https://github.com/${project.github}`
     : `https://gitlab.com/${project.github}`;
@@ -38,7 +42,7 @@ export function ProjectCard({ project }: Props) {
       </div>
 
       <div className="flex flex-wrap gap-1 mb-3">
-        {project.tech.map((t) => (
+        {techLabels.map((t) => (
           <span key={t} className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded">
             {t}
           </span>
@@ -60,12 +64,17 @@ export function ProjectCard({ project }: Props) {
             {project.stars}
           </span>
         )}
-        {project.openIssueCount > 0 && (
-          <span>{project.openIssueCount} issues</span>
+        {project.issueCounts.total > 0 && (
+          <span>{project.issueCounts.total} open</span>
         )}
-        {project.goodFirstIssuesList.length > 0 && (
+        {project.issueCounts.ready > 0 && (
+          <span title="Open, unassigned and not blocked">
+            {project.issueCounts.ready} available
+          </span>
+        )}
+        {project.issueCounts.beginnerReady > 0 && (
           <span className="text-green-600 font-medium">
-            {project.goodFirstIssuesList.length} good first issues
+            {project.issueCounts.beginnerReady} for beginners
           </span>
         )}
       </div>

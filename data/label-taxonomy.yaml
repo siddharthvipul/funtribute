@@ -1,0 +1,158 @@
+# Maps the messy label vocabularies of upstream repos onto Funtribute's facets.
+#
+# Aliases are matched after normalizeLabel(), which lowercases and strips every
+# non-alphanumeric character. So "Back-end", "back end" and "backend" all collapse
+# to the same key and only need listing once here in whichever form reads best.
+#
+# Anything that matches nothing lands in the build report's `unmapped` list, which
+# is how this file is meant to grow. Do not guess: check the repo first.
+
+# Signals the issue is explicitly newcomer-facing.
+beginner:
+  - good first issue
+  - good-first-issue
+  - first-timers-only
+  - first timers only
+  - beginner
+  - beginner friendly
+  - starter
+  - easy
+  - e-easy
+  - level:starter
+  # UNVERIFIED: unicef/hope defines a `gf` label. Almost certainly "good first",
+  # but it is applied to zero open issues so the meaning could not be confirmed.
+  # Remove this if it ever turns out to mean something else.
+  - gf
+
+help_wanted:
+  - help wanted
+  - help-wanted
+  - contributions welcome
+  - up-for-grabs
+
+# Maps onto the existing ContributionType union in src/types/index.ts.
+contribution_type:
+  docs:
+    - documentation
+    - docs
+    - doc
+    - readme
+  design:
+    - design
+    - ui
+    - ux
+    - ui/ux
+    - visual
+  testing:
+    - testing
+    - test
+    - tests
+    - e2e
+    - selenium
+    - coverage
+    - qa
+    - flaky
+  translation:
+    - translation
+    - i18n
+    - l10n
+    - localization
+    - localisation
+  community:
+    - community
+    - outreach
+    - governance
+  code:
+    - bug
+    - enhancement
+    - feature
+    - refactoring
+    - hotfix
+    - security
+    - performance
+
+# Where the work sits. Deliberately NOT tech: "frontend" tells you nothing about
+# the stack, and collapsing the two would pollute the tech filter.
+area:
+  backend:
+    - backend
+    - back-end
+    - backend needed
+  frontend:
+    - frontend
+    - front-end
+    - frontend needed
+  devops:
+    - devops
+    - infrastructure
+    - github_actions
+    - dependencies
+    - ephemeral
+    - staging
+  data:
+    - analysis
+    - analytics
+
+# Weak tech signal from issue labels. Lower weight than curated YAML or the
+# GitHub /languages breakdown.
+tech_hint:
+  python:
+    - python
+    - python:uv
+  javascript:
+    - javascript
+  ruby:
+    - ruby
+
+# Anti-signals. An issue carrying any of these must never be offered to a
+# newcomer as ready to start, regardless of its other labels.
+blocker:
+  blocked:
+    - blocked
+    - conflicts
+    - has merge conflict
+    - resolve-conflicts
+    - long-term-branch
+  on-hold:
+    - on hold
+    - on-hold-by-unicef
+    - for some other day
+  needs-discussion:
+    - needs discussion
+    - question
+    - needs triage
+  wip:
+    - work in progress
+    - wip
+    - changes needed
+  invalid:
+    - wontfix
+    - duplicate
+    - invalid
+
+# The second axis of the Effort x Priority framework in community.md. Effort is
+# parsed from hour ranges instead (see parseEffort); priority is label-only.
+priority:
+  high:
+    - high priority
+    - "priority: high"
+    - p0
+    - p1
+    - critical
+    - urgent
+  medium:
+    - medium priority
+    - "priority: medium"
+    - p2
+  low:
+    - low priority
+    - "priority: low"
+    - p3
+    - nice to have
+
+# Time-boxed drives. Useful for a UN open source week landing page.
+campaign:
+  un-os-week-2025:
+    - UN-OS-Week-2025
+  hacktoberfest:
+    - hacktoberfest

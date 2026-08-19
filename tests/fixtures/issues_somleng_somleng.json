@@ -1,0 +1,50 @@
+[
+  {
+    "number": 2446,
+    "title": "Findings from automated Terraform analysis (cost & security)",
+    "body": "Hello!\n\nWe recently analyzed the Terraform configuration in this repository using **InfraScan** (an infrastructure analysis tool developed by SolDevelo). We identified several specific opportunities to reduce cloud costs and improve security posture.\n\n<img width=\"1350\" height=\"867\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/7e541091-7b14-4a54-8a73-395d0ebe6fef\" />\n\nYou can view the full, interactive report with detailed findings and specific file locations here:\n\n\ud83d\udc49 **[View Full InfraScan Report for somleng](https://infrascan.soldevelo.com/?scan_id=aba4054f-693f-48e0-9929-95f1d5cb125a)**\n\n---\n\n**About this Report**\nThis report was generated automatically by **InfraScan v1.0.1**. We are sharing this as part of our beta program to support open-source projects in maintaining efficient and secure infrastructure.\n\nWe hope you find these insights useful! Please leave feedback on the report, whether the tool is useful, and suggestions for future improvements to such a tool.\n\nBest regards,\nSolDevelo Team",
+    "html_url": "https://github.com/somleng/somleng/issues/2446",
+    "labels": [],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2026-02-10T10:45:39Z",
+    "updated_at": "2026-02-10T10:45:39Z",
+    "author_association": "NONE"
+  },
+  {
+    "number": 2341,
+    "title": "BIlling Schedule for Phone number plans",
+    "body": "",
+    "html_url": "https://github.com/somleng/somleng/issues/2341",
+    "labels": [],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2025-12-09T11:34:53Z",
+    "updated_at": "2025-12-09T11:34:53Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 2337,
+    "title": "Configure CGRateS for Postpaid.",
+    "body": "Get this info from Account though.",
+    "html_url": "https://github.com/somleng/somleng/issues/2337",
+    "labels": [],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2025-12-09T11:06:29Z",
+    "updated_at": "2026-05-05T08:28:18Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 2058,
+    "title": "Pre-paid billing for public sign up (CPaaS)",
+    "body": "- Similar to Twilio's customer\n- Payment Methods: Card Payment.\n- Purchase Numbers (Pool of numbers: Skyetel, AWS, Devices)\n- Opt-in/out",
+    "html_url": "https://github.com/somleng/somleng/issues/2058",
+    "labels": [],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2025-07-14T09:30:25Z",
+    "updated_at": "2025-07-14T09:50:40Z",
+    "author_association": "MEMBER"
+  }
+]

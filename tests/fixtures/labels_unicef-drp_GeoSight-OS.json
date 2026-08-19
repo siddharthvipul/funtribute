@@ -1,0 +1,191 @@
+[
+  {
+    "id": 5884308519,
+    "node_id": "LA_kwDOJ_ecTM8AAAABXrtsJw",
+    "url": "https://api.github.com/repos/unicef-drp/GeoSight-OS/labels/:calendar:%2020%20%20-%2024%20hours",
+    "name": ":calendar: 20  - 24 hours",
+    "color": "FBCA04",
+    "default": false,
+    "description": "I’m sorry it will take at least two to three days."
+  },
+  {
+    "id": 5884308077,
+    "node_id": "LA_kwDOJ_ecTM8AAAABXrtqbQ",
+    "url": "https://api.github.com/repos/unicef-drp/GeoSight-OS/labels/:calendar:%208%20-%2012%20hours",
+    "name": ":calendar: 8 - 12 hours",
+    "color": "FBCA04",
+    "default": false,
+    "description": "I’m going to need about a day and a half to do this."
+  },
+  {
+    "id": 5884305279,
+    "node_id": "LA_kwDOJ_ecTM8AAAABXrtffw",
+    "url": "https://api.github.com/repos/unicef-drp/GeoSight-OS/labels/:clock1:%201%20-%201%20hour",
+    "name": ":clock1: 1 - 1 hour",
+    "color": "FBCA04",
+    "default": false,
+    "description": "It’s quick, I will have it done in less than 1 hour."
+  },
+  {
+    "id": 5884305839,
+    "node_id": "LA_kwDOJ_ecTM8AAAABXrthrw",
+    "url": "https://api.github.com/repos/unicef-drp/GeoSight-OS/labels/:clock2:%202%20%20-%202%20hours",
+    "name": ":clock2: 2  - 2 hours",
+    "color": "FBCA04",
+    "default": false,
+    "description": "Give me 2 hours and I will have it for you."
+  },
+  {
+    "id": 5884306350,
+    "node_id": "LA_kwDOJ_ecTM8AAAABXrtjrg",
+    "url": "https://api.github.com/repos/unicef-drp/GeoSight-OS/labels/:clock4:%203%20%20-%204%20hours",
+    "name": ":clock4: 3  - 4 hours",
+    "color": "FBCA04",
+    "default": false,
+    "description": "It will take me between 2 hours to half a day."
+  },
+  {
+    "id": 5884306766,
+    "node_id": "LA_kwDOJ_ecTM8AAAABXrtlTg",
+    "url": "https://api.github.com/repos/unicef-drp/GeoSight-OS/labels/:clock8:%205%20-%208%20hours",
+    "name": ":clock8: 5 - 8 hours",
+    "color": "FBCA04",
+    "default": false,
+    "description": "It will take between half a day and a full day."
+  },
+  {
+    "id": 5884307355,
+    "node_id": "LA_kwDOJ_ecTM8AAAABXrtnmw",
+    "url": "https://api.github.com/repos/unicef-drp/GeoSight-OS/labels/:clock8:%208%20%20-%208%20hours%20at%20least",
+    "name": ":clock8: 8  - 8 hours at least",
+    "color": "FBCA04",
+    "default": false,
+    "description": "This is a full day job."
+  },
+  {
+    "id": 6270529266,
+    "node_id": "LA_kwDOJ_ecTM8AAAABdcCu8g",
+    "url": "https://api.github.com/repos/unicef-drp/GeoSight-OS/labels/Back-end",
+    "name": "Back-end",
+    "color": "5D32F7",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 5772771889,
+    "node_id": "LA_kwDOJ_ecTM8AAAABWBWCMQ",
+    "url": "https://api.github.com/repos/unicef-drp/GeoSight-OS/labels/bug",
+    "name": "bug",
+    "color": "d73a4a",
+    "default": true,
+    "description": "Something isn't working"
+  },
+  {
+    "id": 5772771894,
+    "node_id": "LA_kwDOJ_ecTM8AAAABWBWCNg",
+    "url": "https://api.github.com/repos/unicef-drp/GeoSight-OS/labels/documentation",
+    "name": "documentation",
+    "color": "0075ca",
+    "default": true,
+    "description": "Improvements or additions to documentation"
+  },
+  {
+    "id": 5772771899,
+    "node_id": "LA_kwDOJ_ecTM8AAAABWBWCOw",
+    "url": "https://api.github.com/repos/unicef-drp/GeoSight-OS/labels/duplicate",
+    "name": "duplicate",
+    "color": "cfd3d7",
+    "default": true,
+    "description": "This issue or pull request already exists"
+  },
+  {
+    "id": 5772771903,
+    "node_id": "LA_kwDOJ_ecTM8AAAABWBWCPw",
+    "url": "https://api.github.com/repos/unicef-drp/GeoSight-OS/labels/enhancement",
+    "name": "enhancement",
+    "color": "a2eeef",
+    "default": true,
+    "description": "New feature or request"
+  },
+  {
+    "id": 5772771907,
+    "node_id": "LA_kwDOJ_ecTM8AAAABWBWCQw",
+    "url": "https://api.github.com/repos/unicef-drp/GeoSight-OS/labels/good%20first%20issue",
+    "name": "good first issue",
+    "color": "7057ff",
+    "default": true,
+    "description": "Good for newcomers"
+  },
+  {
+    "id": 5772771910,
+    "node_id": "LA_kwDOJ_ecTM8AAAABWBWCRg",
+    "url": "https://api.github.com/repos/unicef-drp/GeoSight-OS/labels/help%20wanted",
+    "name": "help wanted",
+    "color": "008672",
+    "default": true,
+    "description": "Extra attention is needed"
+  },
+  {
+    "id": 8719947959,
+    "node_id": "LA_kwDOJ_ecTM8AAAACB7_Ytw",
+    "url": "https://api.github.com/repos/unicef-drp/GeoSight-OS/labels/high%20priority",
+    "name": "high priority",
+    "color": "B60205",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 5772771917,
+    "node_id": "LA_kwDOJ_ecTM8AAAABWBWCTQ",
+    "url": "https://api.github.com/repos/unicef-drp/GeoSight-OS/labels/invalid",
+    "name": "invalid",
+    "color": "e4e669",
+    "default": true,
+    "description": "This doesn't seem right"
+  },
+  {
+    "id": 6546629935,
+    "node_id": "LA_kwDOJ_ecTM8AAAABhjWlLw",
+    "url": "https://api.github.com/repos/unicef-drp/GeoSight-OS/labels/Kartoza%20Funded",
+    "name": "Kartoza Funded",
+    "color": "D93F0B",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 5885153924,
+    "node_id": "LA_kwDOJ_ecTM8AAAABXshShA",
+    "url": "https://api.github.com/repos/unicef-drp/GeoSight-OS/labels/needs%20discussion",
+    "name": "needs discussion",
+    "color": "fef2c0",
+    "default": false,
+    "description": "We need discussion and community agreement before implementing"
+  },
+  {
+    "id": 5772771921,
+    "node_id": "LA_kwDOJ_ecTM8AAAABWBWCUQ",
+    "url": "https://api.github.com/repos/unicef-drp/GeoSight-OS/labels/question",
+    "name": "question",
+    "color": "d876e3",
+    "default": true,
+    "description": "Further information is requested"
+  },
+  {
+    "id": 8583256136,
+    "node_id": "LA_kwDOJ_ecTM8AAAAB_5oYSA",
+    "url": "https://api.github.com/repos/unicef-drp/GeoSight-OS/labels/UN-OS-Week-2025",
+    "name": "UN-OS-Week-2025",
+    "color": "aaaaaa",
+    "default": false,
+    "description": null
+  },
+  {
+    "id": 5772771926,
+    "node_id": "LA_kwDOJ_ecTM8AAAABWBWCVg",
+    "url": "https://api.github.com/repos/unicef-drp/GeoSight-OS/labels/wontfix",
+    "name": "wontfix",
+    "color": "ffffff",
+    "default": true,
+    "description": "This will not be worked on"
+  }
+]

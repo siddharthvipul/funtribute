@@ -8,6 +8,8 @@
   "scripts": {
     "prebuild": "tsx scripts/build-data.ts",
     "dev": "astro dev",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
@@ -26,6 +28,7 @@
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.9",
-    "tsx": "^4.21.0"
+    "tsx": "^4.21.0",
+    "vitest": "^4.1.11"
   }
 }

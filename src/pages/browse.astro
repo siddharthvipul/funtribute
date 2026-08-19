@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { Catalog } from '../components/Catalog';
-import { projects, techOptions } from '../data/load-projects';
+import { projects, techOptions, techTaxonomy } from '../data/load-projects';
 ---
 
 <Base title="Browse Projects">
@@ -11,5 +11,5 @@ import { projects, techOptions } from '../data/load-projects';
       <p class="text-gray-600 mt-1">Filter by SDG, technology, contribution type, and more</p>
     </div>
   </div>
-  <Catalog client:load projects={projects} techOptions={techOptions} />
+  <Catalog client:load projects={projects} techOptions={techOptions} techTaxonomy={techTaxonomy} />
 </Base>

@@ -1,0 +1,594 @@
+[
+  {
+    "number": 685,
+    "title": "OGC handle CSR 4326",
+    "body": "",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/685",
+    "labels": [],
+    "assignees": [
+      "meomancer"
+    ],
+    "comments": 0,
+    "created_at": "2026-06-10T05:30:57Z",
+    "updated_at": "2026-06-10T05:30:57Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 684,
+    "title": "OGC id column as non integer",
+    "body": "# Problem\nWhen user upload data with id but string, it will fails as we need to alter the column as big int.\n\n# Solution\n- [ ] Reject upload when id is not integer",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/684",
+    "labels": [],
+    "assignees": [
+      "meomancer"
+    ],
+    "comments": 0,
+    "created_at": "2026-06-10T05:26:30Z",
+    "updated_at": "2026-06-10T06:30:57Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 658,
+    "title": "[Feature Request] Multi-map Compare Mode (Side-by-Side View)",
+    "body": "# [Feature Request] Multi-map Compare Mode (Side-by-Side View)\n\n## Overview\n\nOne of the important user needs is the ability to compare multiple indicators simultaneously by viewing them in separate, synchronized map windows \u2014 not overlaid on the same map. This helps analysts and decision-makers understand complex multi-dimensional situations, e.g. where regions have low access to schools, low access to health facilities, AND high population density, all visible at once without switching views.\n\nThe objective of this ticket is to introduce a new **Multi-map Compare Mode** that allows users to view up to **6 indicator layers side by side**, each rendered in its own independent map window, all synchronized in terms of extent, zoom, basemap, and time settings.\n\n> **Note:** This is based on the Swipe Mode feature request (see #37), which splits a single map view with a draggable bar. This feature renders fully independent map windows placed next to each other.\n\n---\n\n## Current State\n\nThe existing Compare Mode supports:\n- **Outline & Fill Mode** \u2014 two layers are overlaid on the same map using outlines and fill colours.\n\nThis new feature request (#37) will support:\n- **Swipe Mode** \u2014 a single map is split by a vertical bar, showing one layer on each side.\n\nBoth modes are limited to **2 layers** and operate within a **single map viewport**. Users who want to compare three or more indicators can currently rely on filters or composite indicator layers, but there is no way to view them simultaneously.\n\n\n---\n\n## Proposed Solution\n\nIntroduce a new compare mode: **\"Side-by-Side View\"**, accessible from the existing compare mode dropdown. When activated:\n\n- The main map viewport splits into **multiple equally-sized map windows** arranged in a responsive grid.\n- Each window renders **one selected indicator layer** independently, sharing the same basemap, bounding box, zoom level, admin level, and time configuration.\n- Up to **6 layers** can be selected for comparison.\n- All map win",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/658",
+    "labels": [],
+    "assignees": [
+      "meomancer"
+    ],
+    "comments": 1,
+    "created_at": "2026-05-13T08:41:19Z",
+    "updated_at": "2026-06-12T05:51:10Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 652,
+    "title": "[Feature Request] Add create endpoint for dashboards in API v1",
+    "body": "**Is your feature request related to a problem? Please describe.**\nYes. API v1 can list and retrieve dashboards, but it cannot create them.\nThis forces teams to use the UI for creation, which blocks full API-based workflows.\n\n**Describe the solution you'd like**\nAdd `POST /api/v1/dashboards/` to API v1 and reuse the existing dashboard creation flow.\n\nRequirements:\n- Accept dashboard definition JSON in the payload.\n- Allow only authenticated users with at least creator role.\n- Deny anonymous/public and non-creator users.\n- Support JSON and multipart requests (including optional icon upload).\n- Return `201` on success and `400` with clear validation errors on bad input.\n- Keep creation transaction-safe (no partial save if relation save fails).\n- Update API docs to match actual request/response behavior.\n\n**Describe alternatives you've considered**\n- Keep creation UI-only. This does not support API automation.\n- Build a separate API-only create flow. This can drift from existing UI logic.\n- Redesign the payload model first. This increases scope and delays delivery.\n\n**Additional context**\nMaintainer note:\n- Dashboard definition is already JSON, so posting JSON should be enough for create.\n- This endpoint must not be available to public users.\n- Minimum role should be creator.\n\nScope:\n- Add create support to the v1 dashboards endpoint.\n- Reuse existing dashboard creation flow.\n- Add tests for success, permission denial, validation errors, multipart upload, and transaction rollback.\n- Update API docs/schema for create.\n\nOut of scope:\n- Update or patch semantics.\n- Full payload redesign.\n- Unrelated dashboard feature or permission changes.\n- Generic map viewer flow where users add layers and save config as URL (future work).\n\nProposed acceptance checklist:\n- [ ] `POST /api/v1/dashboards/` is available in API v1.\n- [ ] Endpoint requires authentication and creator+ role.\n- [ ] Anonymous/public and non-creator requests are denied.\n- [ ] JSON and multipart create flows both w",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/652",
+    "labels": [],
+    "assignees": [
+      "meomancer"
+    ],
+    "comments": 4,
+    "created_at": "2026-04-24T01:01:36Z",
+    "updated_at": "2026-05-26T06:07:33Z",
+    "author_association": "NONE"
+  },
+  {
+    "number": 596,
+    "title": "Bookmarks API",
+    "body": "- [ ] List of bookmark of dashboard (i think just id, name, description) : /api/v1/dashboards/{slug}/bookmarks/\n- [ ] Detail of bookmark : /api/v1/dashboards/{slug}/bookmarks/1/\n- [ ] Delete a bookmark : DELETE /api/v1/dashboards/{slug}/bookmarks/1/\n\nFor create/editing, we need to postpone it as the payload is need to be strict",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/596",
+    "labels": [],
+    "assignees": [],
+    "comments": 1,
+    "created_at": "2026-01-21T03:43:21Z",
+    "updated_at": "2026-04-18T02:39:09Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 595,
+    "title": "[Feature Request] Feature Request: Story Map Tool to build data narratives",
+    "body": "# Summary\nIntroduce a Story Map functionality to the GeoSight platform that allows dashboard creators to define guided, step-based narratives over a map. Story Maps will enable users to present spatial insights through a sequence of configured map states, improving storytelling, onboarding, and analytical workflows.\n\n# High-Level Design\n## 1. Dashboard Integration\nStory Map is implemented as a separate component, similar to Widgets, with its own Django data model.\n- Listed as a separate config menu item in dashboard configuration, after Tools and before Share menu items\n- When enabled [3] - a Story Map button will be shown in the dashboard toolbar\n\n<img width=\"1920\" height=\"648\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/58c45a6c-06ef-4c26-b38b-752dff484be0\" />\n\n## 2. Story Map Configuration\n\n### Tool Configuration. \nStory Map tool has its own configuration panel. Users can:\n- Add / edit / show/hide / remove pages\n- Reorder pages\n- UI can reuse the existing re-orderable table component (similar to reordering Widgets)\n\n###Story Map Page\nEach page includes:\n- Title\n- Description (rich text)\n- Thumbnail (optional)\n- Spatial Bookmark, storing: Map zoom / bbox, Layer visibility, Filters, 2D / 3D mode, Any other relevant map state\n\n## 3. Playback & Controls\n- Play / Pause / Next / Previous controls\n- Ensure data is fully loaded before auto-advancing to the next step\n- Support both manual navigation and auto-play\n\n## 4. UI & UX Considerations\n- Component can be visualized in a left panel, as a new \"Story\" tab next to the \"Layers\" and \"Filters\" tabs:\n\n<img width=\"1920\" height=\"1080\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/79d52920-023c-41d5-8c86-b896d1cfa7e2\" />\n\n- Additional option may be added to the General dashboard config to allow hiding Layers and Filters tabs and making Story Map dashboard's UI even simpler (the Story will navigate through layers and filters by using Spatial Bookmarks)\n\n<img width=\"1919\" height=\"620\" alt=\"Image\" s",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/595",
+    "labels": [],
+    "assignees": [],
+    "comments": 5,
+    "created_at": "2026-01-20T21:59:13Z",
+    "updated_at": "2026-01-21T03:51:39Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 578,
+    "title": "Enhancements for context layers config",
+    "body": "- [ ] Set default type for new context layers to Cloud Native GIS Layers (if this module is enabled and installed)\n- [ ] Put all fields from General tab in two columns if wide screen (Layer Type at the top of right column)\n- [ ] Get and store / keep updated bbox of cloud native layers (update each time layer is modified, including via API)\n- [ ] Preview tab - zoom to bbox\n- [ ] Preview tab - Set default Circle stroke color to Black (currently - null)\n- [ ] Preview tab - Set default Circle stroke opacity to 1 (currently - null)\n- [ ] Preview tab - Set default Circle stroke width to 1 (currently null)\n- [ ] Enable labels config",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/578",
+    "labels": [],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2025-12-04T10:59:25Z",
+    "updated_at": "2025-12-04T11:00:10Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 552,
+    "title": "[Feature Request] Add Custom Chart Widget",
+    "body": "## Overview\nGeoSight currently includes a **generic widget framework** that displays summary statistics from specific indicators, dates, and administrative/geographic units.  \nExisting widget types include:\n1. **Summary Numbers** \u2014 single or grouped indicators or admin units.\n2. **Time-Series Charts** \u2014 showing indicator values over time.\n\n<img width=\"1920\" height=\"912\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/ee6f6c73-52e0-4547-a920-54096c913e50\" />\n1 - Widget section\n2 - Summary Widget\n3 - Time-series widget\n\n</br>\n</br>\n\n<img width=\"1920\" height=\"912\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/c5e4e952-ea0b-41a6-8ec5-9cfe29c7c169\" />\nWidgets management\n\n<img width=\"1920\" height=\"912\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/6d89e106-e35b-4d2b-9f1e-f0043c7b2453\" />\nWidget configuration page\n\nTo extend GeoSight\u2019s analytical and visualization capabilities, this enhancement proposes adding a **Custom Chart Widget** that uses the same underlying widget data model but renders the output as configurable charts using an **open-source charting library** (e.g., [Chart.js](https://www.chartjs.org/)).\n\n\n## Background / Problem Statement\nThe current widget system is functional but limited in visualization flexibility. Many users would like to display aggregated indicator data in more expressive visual forms (e.g., bar charts, pie charts, radar plots) to better communicate patterns and comparisons.  \n\nWhile the \u201csummary numbers\u201d widget provides the required data (indicators, admin levels, time filters), it does not offer configurable chart-based visualization options. A reusable, configurable chart widget framework would allow users to visualize these same datasets more effectively, without custom coding or manual data exports.\n\n\n## Proposed Solution\nDevelop a **generic Chart Widget framework** that leverages the existing widget data model and API but uses **Chart.js** (or similar) for visualization.  \n\nThe new widget type",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/552",
+    "labels": [],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2025-10-16T14:35:16Z",
+    "updated_at": "2025-10-16T14:35:16Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 526,
+    "title": "[Feature Enhancement] Update translations",
+    "body": "# Overview\nGeoSight supports multi-lingual interface. This functionality is described in details here: https://unicef-drp.github.io/GeoSight-OS-Documentation/developer/manual/translations/\n\n# Problem\nNot all labels are yet translated. See below for a few examples:\n\n- [ ] Tooltips for tools in the map toolbox: Toggle Panel, Reference Layer selection and other tools in the toolbar:\n\n<img width=\"698\" height=\"204\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/7a2b1cc6-55bb-4ce9-ad10-9d1d2102ec2c\" />\n\n\"Reference Layer selection\" label which can be found in:\nhttps://github.com/unicef-drp/GeoSight-OS/blob/3374edc8c46dc243be779686d38c0c0de64a8f5a/django_project/frontend/src/pages/Dashboard/MapLibre/index.jsx#L311\n<img width=\"817\" height=\"341\" alt=\"Image\" src=\"https://github.com/user-attachments/assets/5c5327b3-af9d-4630-a681-b3844bacd4c6\" />\n\n# Solution\nGo through the code and the UI (both admin page and dashboard interface) and locate any non-translated texts and enable translations for them following the documentation provided here: https://unicef-drp.github.io/GeoSight-OS-Documentation/developer/manual/translations/#adding-a-new-translation",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/526",
+    "labels": [],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2025-08-11T10:34:54Z",
+    "updated_at": "2025-08-11T10:34:54Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 513,
+    "title": "[Enhancement] Improve Landing Page UI/UX",
+    "body": "# Problem\nThe current landing page presents an overview and a sortable, searchable list of projects - including 1) for logged users: the user\u2019s own projects and projects created and shared by others, and 2) for public users: publicly shared projects. While functional, this approach may overwhelm casual end users, especially public visitors or new internal users who may not need immediate access to the full project list. Additionally, the design and layout are not fully optimized for mobile devices, leading to potential usability and accessibility challenges on smaller screens.\n\n# Proposed Solution\n- Simplify the landing page by showcasing a curated set of **Featured Projects** rather than the complete project list by default.\n- Ensure the page is fully responsive and delivers an excellent user experience on mobile, tablet, and desktop devices.\n- Improve visual hierarchy to highlight key content, such as featured projects or introductory information.\n- Enhance the UI/UX for both logged users as well as for public users\n- Add any additional landing page components that might be useful e.g.:\n  - News & Updates, \n  - Call to Action (e.g. \u201cContribute to the Project\u201d button linking to GitHub with clear guidance on how to get involved, \"Learn More About Our Open Source Approach\u201d section to promote transparency and collaboration values, direct link to documentation, developer guides, or user tutorials for deeper engagement)\n  - Community Engagement Links: links or banners to community forums, Slack/Discord servers, mailing lists, or user groups.\n  - Success Stories or Case Studies: Showcase real-world applications or success stories to inspire new users.\n  - Accessibility Improvements: High contrast mode toggle, keyboard navigation support, and screen reader-friendly design.\n- Conduct usability testing, with an emphasis on mobile usage scenarios.\n\n# Open to Suggestions\nWe are fully open to any creative suggestions or enhancements beyond the ideas listed above. Designers and",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/513",
+    "labels": [
+      "good first issue",
+      ":calendar: 8 - 12 hours",
+      "UN-OS-Week-2025"
+    ],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2025-06-11T11:28:55Z",
+    "updated_at": "2025-06-11T11:36:47Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 511,
+    "title": "[Feature Request] Collect and visualize usage statistics",
+    "body": "# Problem\nOur web-based geospatial platform currently lacks usage monitoring and analytics capabilities. Without usage statistics, we have limited insight into how users interact with the platform, which features are most utilized, and potential performance bottlenecks. Implementing usage tracking will enable the team to make data-driven decisions for feature improvements, resource allocation, and overall platform optimization.\n\n\n# Solution\nProvide super admin and content owners with the statistics on individual items usage and other usage statistics.\n\nStatistics are mainly needed for:\n- [ ] Projects (e.g. number of views)\n- [ ] Indicators (e.g. number of requests for data, for which datasets / countries / dates)\n- [ ] Users activities: number of logins,\n- [ ] ...?\n\nOther considerations, e.g.:\n- User Activity Metrics:\n  - Daily/weekly/monthly active users (DAU/WAU/MAU).\n  - Number of logins per user.\n  - User session duration.\n  - Frequency of platform visits.\n- Performance Metrics\n  - Response time of key views and endpoints.\n  - Average load time of maps and data layers.\n  - Error rates or failed API calls.\n- User Segmentation\n  - Usage patterns by user role (e.g., admin vs. viewer).\n\n\n# Implementation Suggestions:\n## Django Middleware for Basic Tracking:\nLog each request with timestamp, user ID (if authenticated), URL path, and response time.\nStore logs in a database table or external logging service (e.g., ELK, Grafana Loki).\n\n## Custom Django Signals:\nTrack specific events (e.g., map viewed, layer added, export triggered).\nEmit signals on important user actions to capture detailed context.\n\n## Database Schema Updates:\nAdd tables for storing event logs, user activity summaries, or feature usage counters.\n\n## Third-party Analytics Integration (Optional):\nIntegrate with tools like Matomo (self-hosted) or Plausible for privacy-friendly analytics.\nGoogle Analytics (if privacy policies allow) for generic pageview and session tracking.\n\n## Admin Dashboard:\nCreate a Dj",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/511",
+    "labels": [
+      "good first issue",
+      ":calendar: 8 - 12 hours",
+      "UN-OS-Week-2025"
+    ],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2025-06-09T12:50:06Z",
+    "updated_at": "2025-06-09T12:50:49Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 510,
+    "title": "[Feature Request] Dark mode",
+    "body": "1. Create a dark mode style set for dashboards.\n2. Add a switcher in the UI for users to switch between dark/light mode (add to a toolbar)\n3. In dashboard config - add a switcher for defining default style (light or dark) and allow / disable switching the style for dashboard end users)\n\nThe following should be main colors:\n- dark grey: #2C2C2B\n- light grey: #CCCCCC\n- UNICEF blue: #1CABE2\n\n\n![Image](https://github.com/user-attachments/assets/29ff58c7-c692-45cd-98ba-802837a9df2d)",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/510",
+    "labels": [
+      ":calendar: 8 - 12 hours",
+      "UN-OS-Week-2025"
+    ],
+    "assignees": [],
+    "comments": 1,
+    "created_at": "2025-06-09T12:42:30Z",
+    "updated_at": "2025-06-16T18:42:30Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 503,
+    "title": "[Feature Request] Add option to download cloud native context layers",
+    "body": "# Problem\nGeoSight has a plugin called Cloud Native GIS Layers. It allows users to upload context layers (e.g. zipped point or line layers, e.g. shapefiles) to represent layers such as roads, locations of schools, camps, shelters etc. In some cases users want to share uploaded cloud native context layers and allow other users to download them for further analysis.\n\n# Solution\n- [ ] 1. In admin panel - add a \u201eDownload\u201d buton to allow downloading original files (e.g. shp or COG in the future) on the list of context layers\n- [ ] 2. add \u201eDownload\u201d buton at the top of context layer details page\n- [ ] 3. add a tab \"Context Layers\" with a list of downloadable context layers in the Download dialog box (in the Dashboard view mode - for end users). Note, the Download dialog box already exists for indicator data. We need to add a new tab for cloud native context layers. \n\nGo to this demo dashboard to explore download dialog box:\n1. Open https://geosight.unicef.org/project/demo-geosight-project\n2. Click Download icon in the upper right corner to open Download dialog box\n\n\n### 1. Download button on the list of context layers\n![Image](https://github.com/user-attachments/assets/dece945c-151f-468f-9b11-924c90edda11)\n\n\n### 2. Download button on the context layer details page\n![Image](https://github.com/user-attachments/assets/bce813b0-4093-4de4-add6-39843bba9a9e)\n\n### 3. Download dialog box in the Dashboard view mode\n\nExisting tab for indicator data:\n![Image](https://github.com/user-attachments/assets/e6f186c4-1f6a-4d53-9049-c8b67f6b4267)\n\nExpected new tab for context cloud native layers:\n![Image](https://github.com/user-attachments/assets/be1feb05-88d7-464f-9be8-a05506b6e696)",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/503",
+    "labels": [
+      ":calendar: 8 - 12 hours",
+      "UN-OS-Week-2025"
+    ],
+    "assignees": [],
+    "comments": 2,
+    "created_at": "2025-06-02T09:44:05Z",
+    "updated_at": "2025-06-09T08:26:27Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 483,
+    "title": "[Task] Improve and Expand GeoSight Documentation",
+    "body": "# Problem Statement  \nThe current [GeoSight documentation repository](https://github.com/unicef-drp/GeoSight-OS-Documentation) lacks detailed, up-to-date information on several key areas of the [GeoSight platform](https://github.com/unicef-drp/GeoSight-OS), including a detailed description of each backend screen (e.g. creating new and editing Projects, Indicators, Context Layers, Related Tables etc), data integration workflows, customization options. This makes it challenging for new users and contributors to onboard and effectively utilize the platform or contribute to its development.\n\n# Proposed Solution  \nEnhance the GeoSight documentation by:\n\n1. Validate and update (if needed) sections on installation, configuration, and deployment on different Operating Systems.\n2. Improve the [Quick Start](https://unicef-drp.github.io/GeoSight-OS-Documentation/user/quickstart/) tutorial covering the following steps: 1) Create new indicator, 2) Upload new data, 3) Create new Project, add indicator layer, 4) Share with public users\n3. Improve / update the [User Guide](https://unicef-drp.github.io/GeoSight-OS-Documentation/user/guide/) - describe different use cases and steps, update screenshots as needed.\n4. Improve / update the [User Manual](https://unicef-drp.github.io/GeoSight-OS-Documentation/user/manual/) - update screenshots and descriptions of new features or options that have been developed but are not yet well documented.\n5. Update the structure using the [MkDocs standard](https://unicef-drp.github.io/GeoSight-OS-Documentation/developer/documentation/) for consistency and ease of navigation.\n\n# Resources\n- [GeoSight GitHub Repository](https://github.com/unicef-drp/GeoSight-OS)  \n- [GeoSight Documentation Repository](https://github.com/unicef-drp/GeoSight-OS-Documentation)  \n- [MkDocs Documentation Guidelines](https://unicef-drp.github.io/GeoSight-OS-Documentation/developer/documentation/)\n",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/483",
+    "labels": [
+      ":calendar: 8 - 12 hours",
+      "UN-OS-Week-2025"
+    ],
+    "assignees": [],
+    "comments": 1,
+    "created_at": "2025-05-13T10:54:03Z",
+    "updated_at": "2025-06-09T08:23:42Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 481,
+    "title": "[Feature Request] Expand Support for Uploading Cloud Optimized GeoTIFFs (COG)",
+    "body": "# Current State\nOur web-based GIS platform (GeoSight) currently supports user-uploaded context layers stored directly in the platform database as \"cloud native GIS layers.\" At the moment, the upload interface only supports vector format, i.e. zipped Shapefiles (.shp/.shx/.dbf/.prj in a zip archive). These layers are then stored in PostGIS and made available for use in map dashboards.\n\n![Image](https://github.com/user-attachments/assets/01e367c0-3cc2-4bb1-8f04-e9113d7a7619)\n\nMany datasets in weather, climate science, and Earth observation are distributed as rasters - gridded data where each cell (pixel) contains a value like temperature, precipitation, vegetation index, or satellite reflectance. These datasets are:\n- Large in size (often hundreds of MBs to several GBs)\n- Spatio-temporal (covering wide areas across time)\n- Frequently updated (e.g., daily satellite passes, hourly forecasts)\n\nCloud Optimized GeoTIFFs (COGs) are a modern raster format that enables fast, scalable access to large geospatial datasets\u2014such as satellite imagery and climate grids\u2014directly over HTTP, making them ideal for web-based Earth observation and GIS applications.\n\n# Problem\nOur current implementation allow users to create COG-based context layers [1] using external, publicly available COGs [2] by referencing their URLs [3]. \n\n![Image](https://github.com/user-attachments/assets/043edc95-b116-424b-a0fb-a3e7878f9636)\n\n![Image](https://github.com/user-attachments/assets/f90e48cb-31fe-4cd6-ab7b-5a3f3b4b1bc0)\n\n\n## Limitations of current approach\n- No control over data availability: external COGs may be deleted, or moved by the host, which breaks dashboards or layers without warning.\n- Inability to upload our own COG files: users can't directly use internally generated raster data, which blocks use cases like processed satellite imagery, terrain models, or climate simulations.\n- Security & data sensitivity risks: cannot host or share sensitive, internal, or access-controlled raster data (all C",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/481",
+    "labels": [
+      ":calendar: 20  - 24 hours",
+      "UN-OS-Week-2025",
+      "high priority"
+    ],
+    "assignees": [],
+    "comments": 2,
+    "created_at": "2025-05-09T09:46:51Z",
+    "updated_at": "2025-08-27T02:08:54Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 472,
+    "title": "Implement Dynamic H3 Binning for Cloud Native Point Layers",
+    "body": "## Problem\nGeoSight supports uploading point Cloud Native layers (e.g. in a shapefile format). Currently, styling of Cloud Native GIS layers is based on [Mapbox Style Spec](https://docs.mapbox.com/style-spec/reference/layers/) and requires customizing style JSON file [2]. Users can also use a built-in [Maputnik](https://github.com/maplibre/maputnik) style editor [1].\n\n![Image](https://github.com/user-attachments/assets/19ecc04d-2d75-4fea-9514-a3fb4cd11f23)\n\nBinning point layers into H3 hexagons enables clearer visualization of spatial patterns, especially in dense or overlapping datasets. It improves performance for large datasets, supports multiscale analysis, and avoids issues tied to arbitrary administrative boundaries by offering a consistent spatial unit across zoom levels.\n\n\n## Solution\nEnable users to apply dynamic H3 binning to uploaded Cloud Native point layers within the platform, transforming raw point data into aggregated hexagonal grids using the H3 spatial index. Implementation would involve computing H3 indices for each point at the chosen resolution and aggregating values (e.g. count, sum, average) within each hex cell. Users will be able to specify aggregation method (count, sum, max etc) as well as coloring style (continuous or stepped classes) and the Mapbox Style JSON code will update automatically to reflect the selection.\n\n- [ ] Allow users to dynamically aggregate and visualize point data (e.g., schools, clinics, facilities) into H3 hexagons at a user-selected resolution.\n- [ ] Support on-the-fly heatmapping or statistical aggregation (e.g., count, average, sum) via the user interface or API.\n\n\n## Mockups\n\n#### Current style option\n\n![Image](https://github.com/user-attachments/assets/9044887d-04e1-4ee3-9228-a4be49458144)\n\n#### H3 Binning - using Feature Count\n\n![Image](https://github.com/user-attachments/assets/9e43a9a6-5298-47e4-aa9b-92902b801ef0)\n\n\n#### H3 Binning - using Sum and Continuous colors\n\n![Image](https://github.com/user-attachment",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/472",
+    "labels": [
+      ":calendar: 20  - 24 hours",
+      "UN-OS-Week-2025"
+    ],
+    "assignees": [],
+    "comments": 1,
+    "created_at": "2025-04-18T10:47:12Z",
+    "updated_at": "2025-06-09T08:11:47Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 447,
+    "title": "Add Support for H3 Hexagonal Indexing of Indicator Data",
+    "body": "## Description  \nCurrently, GeoSight supports Indicator Data referenced to predefined administrative boundaries (e.g., states, districts, provinces). \n\nWe propose adding support for [H3](https://h3geo.org/) \u2014 a hierarchical hexagonal spatial indexing system \u2014 to enhance the platform\u2019s spatial analysis capabilities beyond static admin boundaries. \n\nImplementing support for the H3 dynamic hexagonal grid reference system in our web GIS mapping platform is important because grid-based mapping mitigates issues associated with using administrative boundaries\u2014such as the need for preloading administrative boundary datasets, inconsistent admin boundary sizes and shapes, different administrative levels, political sensitivities as well as changes over time\u2014by providing a uniform, resolution-adjustable spatial framework for more accurate and comparable geospatial analysis. Additionally, H3 indexing does not require preloading shapefiles / geometries for specific areas, as H3 tiles can be generated on the fly for any Area Of Interest.\n\n![Image](https://github.com/user-attachments/assets/ddb480e8-1e5f-4d24-8855-068101166327)\n\n## Proposed Functionality  \n1. **Storage of Data by H3 Tiles**  \n   - Enable the platform to store Indicator Data (e.g., number of schools, number of children with limited access to health services etc) georeferenced to H3 hexagons instead of administrative boundaries. \n   - Allow importing Indicator Data referenced to H3 tiles (each observation value must be associated with a specific H3 tile ID, rather than admin boundary code, such as ZIP Code, Pcode etc).\n\n![Image](https://github.com/user-attachments/assets/fc50d988-7f79-4c3f-a596-059c54b83bf7)\n\n2. **Visualization of Data by H3 Tiles**  \n   - Allow adding Indicator Layers in Projects/Dashboards based on H3 tiles, rather than based on admin boundary reference layers\n\n![Image](https://github.com/user-attachments/assets/16a28539-2700-498e-b22e-86c5dc229e47)\n\n\n## Benefits  \n- **Improved Spatial Analysis:** ",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/447",
+    "labels": [
+      ":calendar: 20  - 24 hours",
+      "UN-OS-Week-2025"
+    ],
+    "assignees": [],
+    "comments": 2,
+    "created_at": "2025-04-02T12:43:44Z",
+    "updated_at": "2025-06-09T08:53:34Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 413,
+    "title": "Add GeoAI Assistant to allow querying, analyzing and visualizing Google Earth Engine datasets",
+    "body": "## Problem\nSpatial data analysis is essential for decision-making in humanitarian and development contexts, e.g. for disaster preparedness and response, designing programs and interventions or identifying vulnerable populations at risk. However, accessing and utilizing geospatial datasets from platforms like Google Earth Engine (GEE) often requires technical expertise in querying and processing spatial data. This creates a barrier for users who lack advanced GIS knowledge, limiting their ability to leverage powerful geospatial insights.\n\n\n## Solution\nGeoSight - our web mapping application, powered by Django, PostGIS, and MapLibre, needs an intuitive solution that enables users to interact with geospatial data using natural language. By integrating a GeoAI assistant, users can easily discover and add datasets from GEE, perform spatial analyses such as zonal statistics, and aggregate results at administrative levels (e.g., districts) without requiring complex scripting. This functionality will enhance accessibility, improve decision-making, and streamline geospatial analysis workflows for a broader audience.\n\n### User Story - step 1 - data querying\n![Image](https://github.com/user-attachments/assets/df93b475-4352-4b1f-8714-32ca3ea440a4)\n\n### User Story - step 2 - adding data as context layers\n![Image](https://github.com/user-attachments/assets/1d4b5fbe-ffa6-49fd-afcf-93bb35a80b44)\n\n### User Story - step 3 - aggregating data by districts to allow cross-querying with other indicators\n![Image](https://github.com/user-attachments/assets/15a29734-ea4c-4ca0-9bab-49adb354269c)\n\n### ALTERNATIVELY\n**Develop a generic GeoSight GeoAI Assistant page (not a specific pre-designed dashboard) where any GeoSight user can query the data from GEE and from GeoSight using GeoAI Assistant to build dashboards interactively**\n\n![Image](https://github.com/user-attachments/assets/335a239a-be23-45b7-a002-3f7cfeba641e)\n\n\n## Possible Technical Solutions\n### Natural Language Query Processing\n- Tra",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/413",
+    "labels": [],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2025-02-21T13:06:24Z",
+    "updated_at": "2025-02-21T13:06:24Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 247,
+    "title": "We need template projects",
+    "body": "The idea is that when a new organisation is created, we can add or offer a gallery for them to add, a selection of sample projects that allow them to get started quickly with some amazing examples of what you can do on GeoSight.",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/247",
+    "labels": [
+      "Kartoza Funded"
+    ],
+    "assignees": [
+      "meomancer"
+    ],
+    "comments": 0,
+    "created_at": "2024-02-19T11:49:46Z",
+    "updated_at": "2024-08-01T04:19:55Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 246,
+    "title": "Use generic theming for out the box deployments",
+    "body": "Should not use Unicef branding except for Unicef deployments.\r\n\r\nSome ideas:\r\n\r\n* could we publish 'theme packs'\r\n* could we make a theme gallery",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/246",
+    "labels": [
+      "Kartoza Funded"
+    ],
+    "assignees": [
+      "meomancer"
+    ],
+    "comments": 0,
+    "created_at": "2024-02-19T11:43:24Z",
+    "updated_at": "2024-02-19T11:43:25Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 218,
+    "title": "Limits System and API",
+    "body": "We need a system for limits. Limits are quota's that define how many of a given resource an organisation (see https://github.com/unicef-drp/GeoSight-OS/issues/217) may have. Things that may be limited:\r\n\r\n* Number of users for the organisation\r\n* Number of projects for the organisation\r\n* Number of and storage space occupied by related tables for the organisation\r\n* Number of and storage space occupied by related indicator for the organisation\r\n* Number of scheduled jobs for the organisation\r\n* Which types of data importers can be used\r\n\r\n\r\nBy default, limits should be disabled for a deployment.\r\nWhen limits are enabled, a new type of user 'platform manager' should be enabled. Platform managers can create or manage organisations and set limits.\r\n\r\nThe platform manager shall be able to issue themselves an API key that is used for managing the platform.\r\n\r\nAn API should allow a remote management interface to query and set the limits for a deployed instance. \r\n",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/218",
+    "labels": [
+      "Kartoza Funded"
+    ],
+    "assignees": [
+      "meomancer"
+    ],
+    "comments": 0,
+    "created_at": "2024-02-11T22:48:05Z",
+    "updated_at": "2024-02-11T22:48:26Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 217,
+    "title": "Organisation support",
+    "body": "We need to implement support for multiple organisations. When establishing a new account, the user should join one or more organisations. We can provide an experience similar to Google, where the user account can be switched from one organisation to another e.g.  \r\n\r\n![image](https://github.com/unicef-drp/GeoSight-OS/assets/178003/914d2031-ee48-42d4-aca5-09800753ebe2)\r\n\r\n\r\nHowever I think it would make more sense to follow our approach in BIMS (https://github.com/kartoza/django-bims/) whereby a user has a single account / profile, and can belong to multiple organisations. An organisation manager can invite new or existing users to their organisation. \r\n\r\nWhen a user with the needed permissions sets up a new organisation, they should provide a domain/ subdomain that will be linked to that organisation profile.\r\n\r\nOpening the site at a given organisation's subdomain will 'activate' that organisation such that:\r\n\r\n* only users who have been added to that organisation will be able to log in\r\n* only projects, that have been created under the organisation will be listed\r\n* all resources will be filtered, such that only resources associated with the organisation will be shown\r\n* any branding, colours and organisation titling etc. will be shown\r\n\r\nWe should be careful to ensure that data from one organisation cannot 'leak' to another organisation. If there are specific use cases for sharing data between organisations makes sense, we should define and agree these carefully.",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/217",
+    "labels": [
+      "Kartoza Funded"
+    ],
+    "assignees": [
+      "meomancer"
+    ],
+    "comments": 0,
+    "created_at": "2024-02-11T22:30:23Z",
+    "updated_at": "2024-02-11T22:30:23Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 216,
+    "title": "Support user uploaded boundaries",
+    "body": "We would like to be able to create projects where the administration boundaries are provided by the project owner.\r\n\r\nThe functionality should support popular geospatial file formats such as:\r\n\r\n* geojson\r\n* geopackage\r\n* geoparquet\r\n* shapefile\r\n\r\nUpon uploading the dataset, the user should indicate columns that correspond to:\r\n\r\n* Boundary level\r\n* Boundary name\r\n* Boundary unique code\r\n\r\nConceivably we could support multiple layers (e.g. admin0, admin1) to represent different administration levels, or we could require a single layer which contains different admin levels codified by their 'Boundary level' column to indicate which level they represent.\r\n\r\nAdditionally, it would be good to store a reference for the layer such that the boundaries can be cited if needed.\r\n\r\nInternally we should load the user uploaded boundaries into the postgresql backend and serve them back to the project as as_mvt vector tiles so they they are essentially the same delivery mechanism as pulling boundaries from GeoRepo.\r\n\r\nWhere Ucodes and other GeoRepo specific API calls, this GeoSight-side implementation should completely replace the need for GeoRepo, emulating the appropriate API calls if needed or providing an alternate logic path for ucode lookups etc.",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/216",
+    "labels": [
+      "Kartoza Funded"
+    ],
+    "assignees": [
+      "meomancer"
+    ],
+    "comments": 0,
+    "created_at": "2024-02-11T22:05:18Z",
+    "updated_at": "2024-02-11T22:06:30Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 177,
+    "title": "Allow editing Related Tables",
+    "body": "- [ ] allow changing field type, name just like in Field config of context layer",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/177",
+    "labels": [],
+    "assignees": [
+      "meomancer"
+    ],
+    "comments": 0,
+    "created_at": "2023-12-18T10:28:30Z",
+    "updated_at": "2023-12-18T10:28:51Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 166,
+    "title": "[Feature Request] Add clusters visualization style for Related Table-based (point) context layers",
+    "body": "## Overview\r\nThis can be implemented after: #141\r\n\r\nAlso linked to: #145\r\n\r\nClusters are a great way to visualize point data, especially when there are many overlapping points.\r\n\r\n## Solution\r\nAdd a clustered visualization style for point context layers based on 1) the count of clustered points, or 2) the aggregated value from an attribute. As GeoSight is using MapLibre, we could reuse: https://maplibre.org/maplibre-gl-js/docs/examples/cluster/\r\n\r\nThe clustered style should be defined at the Context Layer style config, either globally or overwritten at the project level, just like any other context layer style or label.\r\n",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/166",
+    "labels": [
+      ":calendar: 20  - 24 hours"
+    ],
+    "assignees": [
+      "meomancer"
+    ],
+    "comments": 0,
+    "created_at": "2023-12-02T10:19:46Z",
+    "updated_at": "2024-05-13T07:31:45Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 161,
+    "title": "[Feature Request] API - Add Code",
+    "body": "This is the child of: https://github.com/unicef-drp/GeoSight-OS/issues/151\r\n\r\nCurrent API docs: https://geosight.unicef.org/api/v1/docs/\r\n\r\n## Objective\r\nCreate a new API endpoint for adding a new Code to GeoSight. This will support batch import of codes and code lists and syncing codes / code lists lists from other platforms (e.g. UNICEF SDMX Data Warehouse: https://sdmx.data.unicef.org/overview.html. \r\nCheck sample code lists from SDMX Data Warehouse: https://sdmx.data.unicef.org/items/codelist.html\r\n\r\n## Implementation\r\n### POST /api/v1/code-list/{id}/codes\r\n\r\n* \ud83d\udcd2 Description:\r\n    * Create a code of the code list\r\n* \u2b07\ufe0f Payloads:\r\n    * name : {unique}\r\n    * description\r\n    * value\r\n* \u2b06\ufe0f Returns:\r\n    * 201:\r\n        * id\r\n        * name\r\n        * description\r\n        * value\r\n    * 400:\r\n        * response error",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/161",
+    "labels": [
+      ":clock4: 3  - 4 hours",
+      "Back-end"
+    ],
+    "assignees": [
+      "zamuzakki"
+    ],
+    "comments": 3,
+    "created_at": "2023-11-29T12:18:30Z",
+    "updated_at": "2025-01-29T08:18:37Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 160,
+    "title": "[Feature Request] API - List Codes",
+    "body": "This is the child of: https://github.com/unicef-drp/GeoSight-OS/issues/151\r\n\r\nCurrent API docs: https://geosight.unicef.org/api/v1/docs/\r\n\r\n## Objective\r\nCreate a new API endpoint for listing codes available in GeoSight. Codes are used to build code lists, used for category-based indicators and define allowed values (categories) as indicator values. E.g. the type of indicator A is `Category`, it is associated with a code list `Low-Medium-High`. The code list consists of the following codes: Low, Medium, High. These will be the only allowed observation values for indicator A.\r\n\r\n\r\n## Implementation\r\n\r\n### GET /api/v1/code-list/{id}/codes\r\n\r\n* \ud83d\udcd2 Description:\r\n    * A paginated list of code.\r\n* \u2b07\ufe0f Parameters:\r\n    * name_contains={string}\r\n* \u2b06\ufe0f Returns:\r\n    * results {array}:\r\n        * id\r\n        * name\r\n        * description\r\n        * value\r\n    * count - number of records\r\n    * page - current page\r\n    * page_count - count of pages\r\n    * next - number of next page\r\n    * previous - number of previous page",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/160",
+    "labels": [
+      ":clock4: 3  - 4 hours",
+      "Back-end"
+    ],
+    "assignees": [],
+    "comments": 1,
+    "created_at": "2023-11-29T12:14:06Z",
+    "updated_at": "2023-12-04T09:10:44Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 159,
+    "title": "[Feature Request] API - Add Code list",
+    "body": "This is the child of: https://github.com/unicef-drp/GeoSight-OS/issues/151\r\n\r\nCurrent API docs: https://geosight.unicef.org/api/v1/docs/\r\n\r\n## Objective\r\nCreate a new API endpoint for adding a new Code Lists to GeoSight. This will support batch import of code lists and syncing code lists from other platforms (e.g. UNICEF SDMX Data Warehouse: https://sdmx.data.unicef.org/overview.html. \r\nCheck sample code lists from SDMX Data Warehouse: https://sdmx.data.unicef.org/items/codelist.html\r\n\r\n## Implementation\r\n### POST /api/v1/code-list/\r\n\r\n* \ud83d\udcd2 Description:\r\n    * Create an code list.\r\n* \u2b07\ufe0f Payloads:\r\n    * name\r\n    * description\r\n    * codes {Array}\r\n       * id\r\n       * name\r\n       * value\r\n\r\n* \u2b06\ufe0f Returns:\r\n    * 201:\r\n        * name\r\n        * description\r\n        * codes {Array}:\r\n            * id\r\n            * name\r\n            * value\r\n    * 400:\r\n        * response error\r\n\r\n### PUT /api/v1/code-list/{id}\r\n\r\n* \ud83d\udcd2 Description:\r\n    * Update an code list\r\n* \u2b07\ufe0f Payloads:\r\n    * id\r\n    * name\r\n    * description\r\n    * codes {Array}: {Optional, when empty, it will not replace the codes. If not empty, replace codes.}\r\n       * id\r\n       * name\r\n       * value\r\n* \u2b06\ufe0f Returns:\r\n    * 200:\r\n       * id\r\n       * name\r\n       * description\r\n       * codes {Array}:\r\n           * id\r\n           * name\r\n           * value",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/159",
+    "labels": [
+      ":clock4: 3  - 4 hours",
+      "Back-end"
+    ],
+    "assignees": [],
+    "comments": 2,
+    "created_at": "2023-11-29T12:06:52Z",
+    "updated_at": "2025-06-17T18:11:45Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 158,
+    "title": "[Feature Request] API - List Code lists",
+    "body": "This is the child of: https://github.com/unicef-drp/GeoSight-OS/issues/151\r\n\r\nCurrent API docs: https://geosight.unicef.org/api/v1/docs/\r\n\r\n## Objective\r\nCreate a new API endpoint for listing code lists available in GeoSight. Code lists are used for category-based indicators and define allowed values (categories) as indicator values. E.g. the type of indicator A is `Category`, it is associated with a code list `Low-Medium-High`. The code list consists of the following codes: Low, Medium, High. These will be the only allowed observation values for indicator A.\r\n\r\n\r\n## Implementation\r\n### GET /api/v1/code-list/\r\n\r\n* \ud83d\udcd2 Description:\r\n    * A paginated list of code list.\r\n* \u2b07\ufe0f Parameters:\r\n    * name_contains={string}\r\n* \u2b06\ufe0f Returns:\r\n    * results {array}:\r\n        * id\r\n        * name\r\n        * description\r\n        * codes {Array}:\r\n          * id\r\n          * name\r\n          * value\r\n    * count - number of records\r\n    * page - current page\r\n    * page_count - count of pages\r\n    * next - number of next page\r\n    * previous - number of previous page\r\n\r\n### GET /api/v1/code-list/{id}\r\n\r\n* \ud83d\udcd2 Description:\r\n    * A detailed code list.\r\n* \u2b07\ufe0f Parameters:\r\n    * none\r\n* \u2b06\ufe0f Returns:\r\n    * id\r\n    * name\r\n    * description\r\n    * codes {Array}:\r\n        * id\r\n        * name\r\n        * value",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/158",
+    "labels": [
+      ":clock4: 3  - 4 hours",
+      "Back-end"
+    ],
+    "assignees": [
+      "zamuzakki"
+    ],
+    "comments": 1,
+    "created_at": "2023-11-29T11:58:28Z",
+    "updated_at": "2025-01-29T08:27:06Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 157,
+    "title": "[Feature Request] API - Add Indicator",
+    "body": "This is the child of: https://github.com/unicef-drp/GeoSight-OS/issues/151\r\n\r\nCurrent API docs: https://geosight.unicef.org/api/v1/docs/\r\n\r\n## Objective\r\nCreate a new API endpoint for adding a new indicator to GeoSight. This will support batch import of indicators e.g. from another platform or another GeoSight instance. \r\n\r\n## Implementation\r\n\r\n### POST /api/v1/indicators/\r\n\r\n* \ud83d\udcd2 Description:\r\n    * Create an indicator.\r\n* \u2b07\ufe0f Payload:\r\n    * name (string), \r\n    * description (string), \r\n    * source (string), \r\n    * short_code (string), \r\n    * category (string), \r\n    * units (string), \r\n    * type (int, float, category), \r\n    * value_min (for int and float types), \r\n    * value_max (for int and float types), \r\n    * code_list_id (for \"category\" type only)\r\n   \r\n* \u2b06\ufe0f Returns:\r\n    * 201:\r\n       * name (string), \r\n       * description (string), \r\n       * source (string), \r\n       * short_code (string), \r\n       * category (string), \r\n       * units (string), \r\n       * type (int, float, category), \r\n       * value_min (for int and float types), \r\n       * value_max (for int and float types), \r\n       * code_list_id (for \"category\" type only)\r\n   * 400:\r\n       * response error\r\n       \r\n### PUT /api/v1/indicators/{id}/\r\n\r\n* \ud83d\udcd2 Description:\r\n    * Update an indicator.\r\n* \u2b07\ufe0f Payload:\r\n    * name (string), \r\n    * description (string), \r\n    * source (string), \r\n    * short_code (string), \r\n    * category (string), \r\n    * units (string), \r\n    * type (int, float, category), \r\n    * value_min (for int and float types), \r\n    * value_max (for int and float types), \r\n    * code_list_id (for \"category\" type only)\r\n* \u2b06\ufe0f Returns:\r\n    * 201:\r\n       * name (string), \r\n       * description (string), \r\n       * source (string), \r\n       * short_code (string), \r\n       * category (string), \r\n       * units (string), \r\n       * type (int, float, category), \r\n       * value_min (for int and float types), \r\n       * value_max (for int and float types), \r\n       * code_list_id",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/157",
+    "labels": [
+      ":clock8: 5 - 8 hours",
+      "Back-end"
+    ],
+    "assignees": [],
+    "comments": 1,
+    "created_at": "2023-11-29T09:21:21Z",
+    "updated_at": "2023-12-08T16:03:39Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 156,
+    "title": "[Feature Request] API - List Indicators",
+    "body": "This is the child of: https://github.com/unicef-drp/GeoSight-OS/issues/151\r\n\r\nCurrent API docs: https://geosight.unicef.org/api/v1/docs/\r\n\r\n## Objective\r\nCreate a new API endpoint for listing indicators available in GeoSight and listing the full details of a specific indicator.\r\n\r\n\r\n## Implementation\r\n\r\n### GET /api/v1/indicators/\r\n\r\n* \ud83d\udcd2 Description:\r\n    * A paginated list of indicator.\r\n* \u2b07\ufe0f Parameters:\r\n    * name_contains={string}\r\n    * description_contains={string}\r\n    * shortcode_contains={string}\r\n    * created_by_contains={string}\r\n    * project_slug={project_slug}\r\n    * project_id={project_id}\r\n    * ...\r\n* \u2b06\ufe0f Returns:\r\n    * results {array}:\r\n        * id\r\n        * name\r\n        * description\r\n        * shortcode\r\n        * type\r\n    * count - number of records\r\n    * page - current page\r\n    * page_count - count of pages\r\n    * next - number of next page\r\n    * previous - number of previous page\r\n\r\n### GET /api/v1/indicators/{id}/ \r\n\r\n* \ud83d\udcd2 Description:\r\n    * A detailed indicator.\r\n* \u2b07\ufe0f Parameters:\r\n    * none\r\n* \u2b06\ufe0f Returns:\r\n    * name (string), \r\n    * description (string), \r\n    * source (string), \r\n    * short_code (string), \r\n    * category (string), \r\n    * units (string), \r\n    * type (int, float, category), \r\n    * value_min (for int and float types), \r\n    * value_max (for int and float types), \r\n    * code_list_id (for \"category\" type only)",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/156",
+    "labels": [
+      ":clock8: 5 - 8 hours",
+      "Back-end"
+    ],
+    "assignees": [],
+    "comments": 2,
+    "created_at": "2023-11-29T09:12:21Z",
+    "updated_at": "2025-06-17T18:11:01Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 151,
+    "title": "[WIP] API Design ",
+    "body": "# Overview\r\n\r\nThis issue describes a proposed API for GeoSight. What do we want to achieve\r\nwith the API? Some possibilities:\r\n\r\n* \u2b06\ufe0f\ufe0f **Push data to GeoSight**\r\n    * **Use case:** App integrations to push data from other places\r\n    * Insert indicator values (already in swagger)\r\n    * Replace related tables (in future replace / add partial data in the\r\n      table)\r\n* \u2b07\ufe0f **Pull data from GeoSight**\r\n    * **Use case:** Get data from GeoSight to display in 3rd party app\r\n    * Lower priority than push?\r\n* \ud83d\udee0\ufe0f **GeoSight Content Management**\r\n    * Configure projects etc.\r\n    * **Use case:** Alternative management UI, focus on import / export actions which allow backing up, migrating, batch creation, integrations with SDMX etc.\r\n\r\nOur API will address two areas on concern:\r\n\r\n* data - these are actual information units used to drive the visualisation of the platform\r\n * indicator values - these are admin area / geography linked observations (indicator) for a specific date and time\r\n * related tables - these are detailed structured tables which allow the creation of 1:m relationships between indicator values and additional data associated with that indicator\r\n* content - these are the declared indicators, projects, styles etc. that have been created on the system by our users (creators / content managers).\r\n\r\n# API\r\n\r\n\r\n## /api/v1/projects/\r\n\r\n* \ud83d\udcd2 Description:\r\n    * A detailed definition of a project.\r\n* \u2b07\ufe0f Parameters:\r\n    * none\r\n* \u2b06\ufe0f Returns list:\r\n    * results {array}\r\n        * id\r\n        * name\r\n        * description\r\n        * slug\r\n        * thumbnail\r\n    * count - number of records\r\n    * page - current page\r\n    * page_count - count of pages\r\n    * next - number of next page\r\n    * previous - number of previous page\r\n\r\nFor the elements of a project that are represented as lists, use the following\r\ncalls:\r\n\r\n### /api/v1/projects/{id}/indicators/\r\n\r\n* \ud83d\udcd2 Description:\r\n    * A paginated list of indicators associated with a project.\r\n* \u2b07\ufe0f Parameters:\r\n    *",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/151",
+    "labels": [
+      "Back-end"
+    ],
+    "assignees": [],
+    "comments": 3,
+    "created_at": "2023-11-28T08:57:42Z",
+    "updated_at": "2023-11-30T12:11:04Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 149,
+    "title": "[Feature Request] Add the ability to extract points / lat/lon in the measure tool",
+    "body": "## Problem\r\nIn many cases, we need to pinpoint specific locations on a map. Currently, our measurement tool allow for drawing lines and polygons.\r\n\r\n## Objectvie\r\nAdd the ability to extract points / lat/lon in the measure tool\r\n\r\nEach click on the map should add a point to the dialog, with lat/lon in decimal degrees (comma or tab separated so it is easy to copy and paste to Excel into separate cells)\r\n\r\n![image](https://github.com/unicef-drp/GeoSight-OS/assets/37516253/e10f9964-a7ed-4614-8f82-ccac0a4096cb)\r\n\r\n![image](https://github.com/unicef-drp/GeoSight-OS/assets/37516253/4500b185-f65f-4322-8613-de4a548dcb16)\r\n",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/149",
+    "labels": [
+      ":clock4: 3  - 4 hours"
+    ],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2023-11-27T21:10:09Z",
+    "updated_at": "2023-11-29T09:46:58Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 145,
+    "title": "[Enhancement] Improve context layer config",
+    "body": "## Problem\r\nConfiguring styles for ArcGIS-based context layers is not user friendly and is disconnected from the map preview tab:\r\n\r\nStyle config for a context layer:\r\n![image](https://github.com/unicef-drp/GeoSight-OS/assets/37516253/9d149d05-32eb-48bd-bcc6-90b280b63180)\r\n\r\nPreview of the context layer\r\n![image](https://github.com/unicef-drp/GeoSight-OS/assets/37516253/74442a47-cc43-4144-bbad-63d2e94ebf51)\r\n\r\n## Solution\r\nIntegrate Style and Map tabs in the context layer config and make it more compact / user-friendly:\r\n\r\n![image](https://github.com/unicef-drp/GeoSight-OS/assets/37516253/76f52c64-bd9c-4bb8-8925-edab5b8ee637)\r\n(style config next to a map preview)\r\n\r\n",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/145",
+    "labels": [
+      ":clock4: 3  - 4 hours"
+    ],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2023-11-27T20:44:07Z",
+    "updated_at": "2023-11-27T20:44:19Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 139,
+    "title": "[Enhancement] When exporting data to GeoJSON or Excel - align output format to indicator type (integer, float, category)",
+    "body": "## Overview\r\nIn GeoSight, indicators can be of 3 types: 1) Integer, 2) Float, 3) Category. Type 1 and 2 are numbers, type 3 is string. From the dashboard view, users can download the data in Excel or GeoJSON formats:\r\n![image](https://github.com/unicef-drp/GeoSight-OS/assets/37516253/547d154d-55e6-4f9c-8b04-ad3056bbe7aa)\r\n\r\n## Problem\r\nWhen exporting to GeoJSON, all value in the Value column are represented as strings not numbers, thus cannot be directly used for visualization e.g. as a choropleth map in other GIS systems, e.g. in QGIS:\r\n![image](https://github.com/unicef-drp/GeoSight-OS/assets/37516253/78c7bc8c-3382-4264-8306-0267b6057253)\r\n\r\n`{\r\n    \"type\": \"FeatureCollection\",\r\n    \"features\": [{\r\n            \"type\": \"Feature\",\r\n            \"geometry\": {\r\n                \"type\": \"MultiPolygon\",\r\n                \"coordinates\": [[[[44.23612530500003, 10.472074538000072], ...[44.23612530500003, 10.472074538000072]]]]\r\n            },\r\n            \"properties\": {\r\n                \"ucode\": \"SOM_0001_0001_V1\",\r\n...\r\n                \"adm1_ucode\": \"SOM_0001_V1\",\r\n                \"adm1_type\": \"Admin Level 1\",\r\n                \"adm0_ucode\": \"SOM_V1\",\r\n                \"adm0_type\": \"State\",\r\n                \"IndicatorCode\": \"SAMPLE_IND_A\",\r\n                \"IndicatorName\": \"Sample Indicator A\",\r\n                \"Value\": \"69\",\r\n                \"Date\": \"\"\r\n            }\r\n        }, `\r\n\r\nNote: \r\n`\"Value\": \"69\"`\r\n\r\nSimilarly, when exporting to Excel, all values are formated as strings and need to be converted to number before they can be analyzed (e.g. summed).\r\nThese require from users a few additional steps, especially in GeoJSON they need to create new columns and calculate new values based on strings. **This is often time consuming and may require additional skills from end users. As a result, many users cannot work effectively with data downloaded from GeoSight.**\r\n\r\n\r\n\r\n## Proposed solution\r\n\r\n- [ ] When exporting to GeoJSON, if all indicators are number-based (integer or f",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/139",
+    "labels": [
+      ":clock4: 3  - 4 hours"
+    ],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2023-11-20T18:26:09Z",
+    "updated_at": "2023-11-20T18:27:17Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 87,
+    "title": "[Feature Request] Context Help System Improvements",
+    "body": "@meomancer, per a meeting on 21/09/2023.\r\n\r\n- Can we add wildcard support?\r\n- Does the context help use the 'global' name if a name is not specified?\r\n- Can the hints be clarified for the help desk.\r\n  - **Name**: Improve the help desk hint to say \"reference name for the list of pages in the admin area\"\r\n  - Relative page url: Can this hint specify that this is a wildcard link, this should be a GeoSight relative url, and points to the root element.\r\n  - **Relative Documentation URL**: clarify what link this is (i.e. link to the top level of documentation)\r\n  - **Title**: hint is fine\r\n  - Intro: Can the English be fixed a bit in the hint\r\n- What is the logic behind the roots for the urls (like the relative page url)?",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/87",
+    "labels": [],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2023-10-06T06:24:59Z",
+    "updated_at": "2023-10-06T06:28:21Z",
+    "author_association": "CONTRIBUTOR"
+  },
+  {
+    "number": 45,
+    "title": "[Feature Request] Make legend interactive",
+    "body": "\u26a0\ufe0f This item needs discussion before implementing\r\n\r\n## Problem\r\n\r\nSometimes it can be convenient to filter the map by directly interacting with the legend.\r\n\r\nNote that this might lead to some confusion too as filters also filter the legend and the two interactions may produce confusion for the user.\r\n\r\n\r\n# Proposed solution\r\n\r\n![image](https://github.com/unicef-drp/GeoSight-OS/assets/178003/4018c3c8-5c66-4dc3-8823-9ae37a2dbd61)\r\n\r\nWhen the user clicks on a legend item, the item is toggled off on the legend and the related areas are not shown on the map. \r\n\r\nClicking again will show the item in the legend and on the map.\r\n",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/45",
+    "labels": [
+      "needs discussion"
+    ],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2023-08-25T09:06:50Z",
+    "updated_at": "2023-08-25T09:09:40Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 44,
+    "title": "[Feature Request] Add indicators to landing page gallery",
+    "body": "## Problem\r\n\r\nOver time when you gather up many projects, the return visit rate to projects may be low / sporadic. Finding ways to call user's attention to particular projects when there is \"something to see\" could be helpful in letting decision makers and maintainers hone in on key projects.\r\n\r\n\r\n## Proposed solution\r\n\r\nIt would be nice to have a system of indicators on the  landing page where under different conditions, different indicators are displayed e.g.\r\n\r\n![image](https://github.com/unicef-drp/GeoSight-OS/assets/178003/38a6d576-062b-414a-ade7-17fc5b15d4a3)\r\n\r\n1. **Key thresholds have been crossed** - e.g. if the number if displaced persons in a project's context layer has crossed a threshold, we put a badge on the gallery icon \u26a0\ufe0f\r\n2. **Errors harvesting indicators** - if the updating of a project is failing, show a badge to let the project admin know there is something to investigate \u26d4\ufe0f\r\n\r\nOver time we could add to the list of indicator types above if we think of more that are meaningful.\r\n\r\nIt would also be nice to be able to filter the projects by the indicators so that you could have a view of just projects where a threshold has been crossed.\r\n\r\n\r\n",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/44",
+    "labels": [],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2023-08-25T08:57:32Z",
+    "updated_at": "2023-08-25T08:57:32Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 41,
+    "title": "[BUG] Save button not activated after changing filters",
+    "body": "## Problem\r\nSteps to reproduce:\r\n\r\n1. Open a dashboard for editing\r\n2. Click on Filters\r\n3. Change filter's visibility (state on/off)\r\n4. Save button is not activated. However, it should be activated - as we have changed a filter setting. This configuration defined the initial state of filters when a project (dashboard) is opened.\r\n\r\n![image](https://github.com/unicef-drp/GeoSight-OS/assets/37516253/11aa2d5f-0e61-435f-88c3-45441553907b)\r\n\r\n",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/41",
+    "labels": [
+      "good first issue"
+    ],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2023-08-25T06:28:51Z",
+    "updated_at": "2023-11-20T18:29:36Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 40,
+    "title": "[Feature Request] In the indicator layer config - add button to edit the selected style",
+    "body": "# Overview\r\nWhen defining the style for an Indicator or when editing the style of an Indicator Layer in a Project, user can choose between different style types: \r\n![image](https://github.com/unicef-drp/GeoSight-OS/assets/37516253/0b541e2c-ab3d-4138-a612-a601d9966c5c)\r\n\r\nStyle can be created in a Style Library so that it can be reused (referenced) by many Indicators or Indicator Layers. If the style in the library is changed - all Indicators or Indicator Layers referencing this style will be updated on the map, as the style is dynamically pulled from the library.\r\n\r\nWhen editing the style of an Indicator Layer in a Project, user may choose the style from the library, but may want to edit it (if he has permissions to edit a given style).\r\n\r\n\r\n# Solution\r\nUse case: a user opens config of the Indicator Layer in the Project. The Layer is using style from the library. The user wants to edit the style in the library.\r\n\r\n- [ ] add a button to redirect the user to edit a style\r\n![image](https://github.com/unicef-drp/GeoSight-OS/assets/37516253/79dc5a07-89ed-43ac-91e4-5b4f21705c6e)\r\n\r\nThe edit button / icon should redirect to `.../admin/style/4/edit` or open a popup window with the ability to edit this style. Once the style is modified and saved, the user should go back to the Indicator Layer config page within a Project config.",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/40",
+    "labels": [
+      ":clock8: 8  - 8 hours at least"
+    ],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2023-08-24T21:17:25Z",
+    "updated_at": "2023-08-25T11:50:09Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 37,
+    "title": "[Feature Request] Add another compare mode: swipe",
+    "body": "# Overview\nOne of the important user needs is the ability to compare multiple indicators at the same time. This helps understand complex situations, e.g. where children have low access to schools AND low access to health. The objective of this ticket is to introduce a new comparing mode, which will allow users to swipe between two different indicator layers, which is a common approach for comparing two map layers. As GeoSight uses [MapLibre ](https://maplibre.org/)web mapping library, we can reuse one of the existing implementations of the swipe tool (see links below).\n\n\n# Current state\nBy default, only one indicator layer can be visualized at a time. Compare mode allows users to compare two indicator layers at a time. Currently, users can enable compare mode by clicking on the \"compare\" button in the map toolbar.\n![image](https://github.com/unicef-drp/GeoSight-OS/assets/37516253/69fe3da0-ff22-4399-ba95-36740d42c498)\n\nOnce clicked, the radio buttons on the list of indicator layers will turn into checkboxes. The first selected layer will be visualized using thicker and color-coded outlines. \n![image](https://github.com/unicef-drp/GeoSight-OS/assets/37516253/120da395-0e49-45e7-ad1c-88d823e240c1)\n\nWhen a user selects the second layer - it will be rendered below the outline layer and visualized using filled colors. Additionally, the second legend will display and both indicators will show up in the widgets (if enabled and configured to sync with the map indicators)\n![image](https://github.com/unicef-drp/GeoSight-OS/assets/37516253/e7109dee-ab1d-4d55-9d68-ac377e64ac56)\n\n\n# Solution\nOnce the compare mode is turned on, show a dropdown where user can switch between the current compare mode (Outline & Fill) and the new Swipe mode. Just like in the Outline & Fill mode, in the Swipe mode a user should be able to select up to two layers. The map window will be split by a vertical bar into two parts - the first indicator layer will be visualized in the left part, the second indi",
+    "html_url": "https://github.com/unicef-drp/GeoSight-OS/issues/37",
+    "labels": [
+      ":clock8: 8  - 8 hours at least",
+      "UN-OS-Week-2025"
+    ],
+    "assignees": [],
+    "comments": 1,
+    "created_at": "2023-08-24T20:11:07Z",
+    "updated_at": "2025-06-03T08:33:35Z",
+    "author_association": "COLLABORATOR"
+  }
+]

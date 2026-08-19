@@ -1,0 +1,128 @@
+[
+  {
+    "id": 391855130,
+    "node_id": "MDU6TGFiZWwzOTE4NTUxMzA=",
+    "url": "https://api.github.com/repos/somleng/somleng/labels/bug",
+    "name": "bug",
+    "color": "ee0701",
+    "default": true,
+    "description": null
+  },
+  {
+    "id": 982109241,
+    "node_id": "MDU6TGFiZWw5ODIxMDkyNDE=",
+    "url": "https://api.github.com/repos/somleng/somleng/labels/dependencies",
+    "name": "dependencies",
+    "color": "0025ff",
+    "default": false,
+    "description": null
+  },
+  {
+    "id": 973574882,
+    "node_id": "MDU6TGFiZWw5NzM1NzQ4ODI=",
+    "url": "https://api.github.com/repos/somleng/somleng/labels/depfu",
+    "name": "depfu",
+    "color": "0000ff",
+    "default": false,
+    "description": null
+  },
+  {
+    "id": 775208000,
+    "node_id": "MDU6TGFiZWw3NzUyMDgwMDA=",
+    "url": "https://api.github.com/repos/somleng/somleng/labels/docs",
+    "name": "docs",
+    "color": "bff1ff",
+    "default": false,
+    "description": null
+  },
+  {
+    "id": 391855131,
+    "node_id": "MDU6TGFiZWwzOTE4NTUxMzE=",
+    "url": "https://api.github.com/repos/somleng/somleng/labels/duplicate",
+    "name": "duplicate",
+    "color": "cccccc",
+    "default": true,
+    "description": null
+  },
+  {
+    "id": 391855132,
+    "node_id": "MDU6TGFiZWwzOTE4NTUxMzI=",
+    "url": "https://api.github.com/repos/somleng/somleng/labels/enhancement",
+    "name": "enhancement",
+    "color": "84b6eb",
+    "default": true,
+    "description": null
+  },
+  {
+    "id": 2891669392,
+    "node_id": "MDU6TGFiZWwyODkxNjY5Mzky",
+    "url": "https://api.github.com/repos/somleng/somleng/labels/github_actions",
+    "name": "github_actions",
+    "color": "000000",
+    "default": false,
+    "description": "Pull requests that update Github_actions code"
+  },
+  {
+    "id": 391855133,
+    "node_id": "MDU6TGFiZWwzOTE4NTUxMzM=",
+    "url": "https://api.github.com/repos/somleng/somleng/labels/help%20wanted",
+    "name": "help wanted",
+    "color": "128A0C",
+    "default": true,
+    "description": null
+  },
+  {
+    "id": 391855134,
+    "node_id": "MDU6TGFiZWwzOTE4NTUxMzQ=",
+    "url": "https://api.github.com/repos/somleng/somleng/labels/invalid",
+    "name": "invalid",
+    "color": "e6e6e6",
+    "default": true,
+    "description": null
+  },
+  {
+    "id": 2662001954,
+    "node_id": "MDU6TGFiZWwyNjYyMDAxOTU0",
+    "url": "https://api.github.com/repos/somleng/somleng/labels/javascript",
+    "name": "javascript",
+    "color": "168700",
+    "default": false,
+    "description": "Pull requests that update Javascript code"
+  },
+  {
+    "id": 391855135,
+    "node_id": "MDU6TGFiZWwzOTE4NTUxMzU=",
+    "url": "https://api.github.com/repos/somleng/somleng/labels/question",
+    "name": "question",
+    "color": "cc317c",
+    "default": true,
+    "description": null
+  },
+  {
+    "id": 2662002129,
+    "node_id": "MDU6TGFiZWwyNjYyMDAyMTI5",
+    "url": "https://api.github.com/repos/somleng/somleng/labels/ruby",
+    "name": "ruby",
+    "color": "ce2d2d",
+    "default": false,
+    "description": "Pull requests that update Ruby code"
+  },
+  {
+    "id": 1080010827,
+    "node_id": "MDU6TGFiZWwxMDgwMDEwODI3",
+    "url": "https://api.github.com/repos/somleng/somleng/labels/security",
+    "name": "security",
+    "color": "ee0701",
+    "default": false,
+    "description": "Pull requests that address a security vulnerability"
+  },
+  {
+    "id": 391855136,
+    "node_id": "MDU6TGFiZWwzOTE4NTUxMzY=",
+    "url": "https://api.github.com/repos/somleng/somleng/labels/wontfix",
+    "name": "wontfix",
+    "color": "ffffff",
+    "default": true,
+    "description": null
+  }
+]

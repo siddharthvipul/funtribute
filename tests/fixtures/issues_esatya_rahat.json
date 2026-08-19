@@ -1,0 +1,179 @@
+[
+  {
+    "number": 217,
+    "title": "Add dark mode",
+    "body": "Add a toggle button to change light mode to dark mode and vice-versa ",
+    "html_url": "https://github.com/esatya/rahat/issues/217",
+    "labels": [],
+    "assignees": [
+      "Gopal2021025"
+    ],
+    "comments": 2,
+    "created_at": "2022-10-19T05:19:00Z",
+    "updated_at": "2022-10-20T09:56:28Z",
+    "author_association": "NONE"
+  },
+  {
+    "number": 216,
+    "title": "Admin should be able to add the vendor to project via wallet address of vendor",
+    "body": " - Create an API to add the Vendor to the Project via their wallet_address\r\n - If the vendor wallet_address is not approved, it should fail",
+    "html_url": "https://github.com/esatya/rahat/issues/216",
+    "labels": [
+      "good first issue",
+      "hacktoberfest"
+    ],
+    "assignees": [
+      "RachitGarg-12"
+    ],
+    "comments": 1,
+    "created_at": "2022-10-19T05:17:24Z",
+    "updated_at": "2022-10-21T17:29:51Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 215,
+    "title": "Wallet Address of the vendor should not be updatable through vendor update API",
+    "body": "Update Validator for vendor update API to restrict the update of wallet_address of vendor\r\n - API to Update: ```/api/v1/vendors/{id}```",
+    "html_url": "https://github.com/esatya/rahat/issues/215",
+    "labels": [
+      "good first issue",
+      "hacktoberfest"
+    ],
+    "assignees": [
+      "RachitGarg-12"
+    ],
+    "comments": 1,
+    "created_at": "2022-10-19T05:14:06Z",
+    "updated_at": "2022-10-21T17:29:24Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 197,
+    "title": "What can be done if the agency enters the wrong Beneficiary's phone number?",
+    "body": "",
+    "html_url": "https://github.com/esatya/rahat/issues/197",
+    "labels": [
+      "question"
+    ],
+    "assignees": [
+      "santosh-rumsan"
+    ],
+    "comments": 0,
+    "created_at": "2022-07-12T12:07:23Z",
+    "updated_at": "2022-07-12T12:08:45Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 159,
+    "title": "Bug: Pregenerated QR code created from one agency works in another agencies Mobilizer app",
+    "body": "The pre-generated QR code created by one agency should not function for the mobilizer of another agency. ",
+    "html_url": "https://github.com/esatya/rahat/issues/159",
+    "labels": [],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2022-02-15T12:02:17Z",
+    "updated_at": "2022-02-15T12:02:17Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 157,
+    "title": "New feature: Let beneficiary decide the aid material",
+    "body": "The beneficiary should be able to choose what they want as aid material when they visit the vendor. \r\nIt can be either limited by the agency or full freedom can be given. \r\nThe agency should be able to track the items. ",
+    "html_url": "https://github.com/esatya/rahat/issues/157",
+    "labels": [],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2022-02-14T14:19:15Z",
+    "updated_at": "2022-02-14T14:19:15Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 153,
+    "title": "Customize the pre-message that will be sent to beneficiary",
+    "body": "Agency should be able to customize the pre message for every project that will be sent to the beneficiary while issuing tokens. ",
+    "html_url": "https://github.com/esatya/rahat/issues/153",
+    "labels": [],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2022-02-09T13:08:04Z",
+    "updated_at": "2022-02-09T13:08:04Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 152,
+    "title": "Option to reject/suspend the User of Agency app",
+    "body": "",
+    "html_url": "https://github.com/esatya/rahat/issues/152",
+    "labels": [],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2022-02-09T13:03:41Z",
+    "updated_at": "2022-02-09T13:03:41Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 151,
+    "title": "Show package owned by beneficiary in beneficiary list",
+    "body": "",
+    "html_url": "https://github.com/esatya/rahat/issues/151",
+    "labels": [],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2022-02-09T07:01:45Z",
+    "updated_at": "2022-02-09T07:01:45Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 150,
+    "title": "Show Notification in real time",
+    "body": "",
+    "html_url": "https://github.com/esatya/rahat/issues/150",
+    "labels": [],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2022-02-09T06:59:37Z",
+    "updated_at": "2022-02-09T06:59:37Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 149,
+    "title": "Show Number of Notification on notification icon",
+    "body": "",
+    "html_url": "https://github.com/esatya/rahat/issues/149",
+    "labels": [],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2022-02-09T06:57:46Z",
+    "updated_at": "2022-02-09T06:57:46Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 148,
+    "title": "BUG: Beneficiary Phone numbers are duplicated",
+    "body": "",
+    "html_url": "https://github.com/esatya/rahat/issues/148",
+    "labels": [],
+    "assignees": [],
+    "comments": 0,
+    "created_at": "2022-02-09T06:55:32Z",
+    "updated_at": "2022-02-09T06:55:32Z",
+    "author_association": "COLLABORATOR"
+  },
+  {
+    "number": 140,
+    "title": "Beneficiary should receive an Message after they are issued token by the agency or mobilizer.",
+    "body": "",
+    "html_url": "https://github.com/esatya/rahat/issues/140",
+    "labels": [
+      "enhancement",
+      "feature"
+    ],
+    "assignees": [
+      "myanzik"
+    ],
+    "comments": 0,
+    "created_at": "2022-02-01T08:35:20Z",
+    "updated_at": "2022-02-01T08:35:51Z",
+    "author_association": "COLLABORATOR"
+  }
+]

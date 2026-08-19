@@ -14,6 +14,7 @@ UNICEF open source project discovery platform. Static Astro site deployed to `vi
 npm run dev          # local dev server (needs projects.json to exist)
 npm run build        # prebuild (GitHub data fetch) + astro build
 npx tsx scripts/build-data.ts --dry-run   # generate mock data without GitHub API
+npm test             # vitest: taxonomy + classifier unit tests
 ```
 
 ## Architecture (read files only when working on that area)
@@ -21,7 +22,10 @@ npx tsx scripts/build-data.ts --dry-run   # generate mock data without GitHub AP
 | Area | Key files | Notes |
 |------|-----------|-------|
 | **Types** | `src/types/index.ts` | All shared types: Project, SDG, FilterState, WizardState, etc. |
-| **Data pipeline** | `scripts/build-data.ts`, `data/projects.yaml`, `src/data/load-projects.ts` | YAML registry -> GitHub API enrichment -> `src/data/projects.json` (gitignored) |
+| **Data pipeline** | `scripts/build-data.ts`, `data/projects.yaml`, `src/data/load-projects.ts` | YAML registry -> GitHub enrichment -> `src/data/projects.json` (index) + `src/data/projects/{slug}.json` (full issue lists). Both gitignored. |
+| **Issue classification** | `src/lib/classify/issue.ts`, `data/label-taxonomy.yaml` | Maps upstream labels onto facets, then falls back to heuristics for unlabeled issues. Every derived field carries `'label' \| 'inferred'` provenance. |
+| **Tech taxonomy** | `src/lib/taxonomy/tech.ts`, `data/tech-taxonomy.yaml` | Canonical ids, aliases, parent hierarchy. Pure/bundleable — the catalog and wizard use `techIndex.match()` in the browser. |
+| **Tests** | `tests/*.test.ts`, `tests/fixtures/` | Vitest. Fixtures are real captured GitHub responses, so upstream label drift shows up as a test diff. |
 | **SDG reference** | `src/data/sdgs.ts`, `public/sdg-icons/` | 17 SDGs with colors, names, placeholder SVG icons |
 | **Layout** | `src/layouts/Base.astro` | Header, footer, mobile nav, skip-nav link |
 | **Landing page** | `src/pages/index.astro` | Hero, stats bar, two CTAs. Pure Astro, zero JS. |
@@ -43,9 +47,13 @@ npx tsx scripts/build-data.ts --dry-run   # generate mock data without GitHub AP
 
 ## Data Model (quick reference)
 
-Projects YAML fields: `name`, `slug`, `description`, `github`, `website`, `category` (unicef|venture-fund), `platform` (github|gitlab), `sdgs` (number[]), `tech`, `contribution_types`, `skill_level`, `tags`, `good_first_issues`
+Projects YAML fields: `name`, `slug`, `description`, `github`, `website`, `category` (unicef|venture-fund), `platform` (github|gitlab), `sdgs` (number[]), `tech`, `contribution_types`, `skill_level`, `tags`
 
-YAML uses snake_case; TypeScript uses camelCase. The build script maps between them.
+YAML uses snake_case; TypeScript uses camelCase. The build script maps between them and **validates enum fields** — a typo like `skill_level: expert` fails the build rather than silently producing a project no filter matches.
+
+`good_first_issues` is deliberately NOT a YAML field. It is computed from real issue data; when it was declared by hand it was wrong for three of six projects.
+
+**Growing the taxonomies:** the build prints unmapped labels and unmapped tech. That report is the intended way to extend `data/label-taxonomy.yaml` and `data/tech-taxonomy.yaml` — check the upstream repo before adding an alias rather than guessing what a label means.
 
 ## Future Phases (not yet built)
 
@@ -54,3 +62,7 @@ YAML uses snake_case; TypeScript uses camelCase. The build script maps between t
 - Phase 4: Expand to Digital Public Goods beyond UNICEF
 
 Full design spec: `docs/superpowers/specs/2026-04-16-funtribute-platform-design.md`
+
+**Read `docs/issue-pipeline.md` before touching issue classification, the taxonomies, or the
+tech filter** — it holds the design decisions, invariants, and baseline numbers that the code
+alone doesn't explain.

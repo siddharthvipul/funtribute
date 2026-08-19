@@ -1,0 +1,95 @@
+---
+import type { ClassifiedIssue } from '../types';
+
+interface Props {
+  issues: ClassifiedIssue[];
+  /** Dim the list when these are not currently available to pick up. */
+  muted?: boolean;
+}
+
+const { issues, muted = false } = Astro.props;
+
+const EFFORT_LABEL: Record<string, string> = {
+  S: 'Small',
+  M: 'Medium',
+  L: 'Large',
+};
+
+const TYPE_LABEL: Record<string, string> = {
+  code: 'Code',
+  docs: 'Docs',
+  design: 'Design',
+  testing: 'Testing',
+  translation: 'Translation',
+  community: 'Community',
+};
+
+const READINESS_NOTE: Record<string, string> = {
+  stale: 'No activity in over a year',
+  claimed: 'Already assigned',
+  blocked: 'Blocked or under discussion',
+};
+---
+
+<ul class="space-y-2 list-none p-0">
+  {issues.map((issue) => (
+    <li>
+      <a
+        href={issue.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class={`block bg-white border rounded-lg p-3 transition-colors ${
+          muted
+            ? 'border-gray-200 opacity-70 hover:opacity-100'
+            : 'border-gray-200 hover:border-[#1cabe2] hover:bg-blue-50/40'
+        }`}
+      >
+        <span class="text-sm font-medium text-gray-900 block">{issue.title}</span>
+
+        <div class="flex flex-wrap items-center gap-1.5 mt-2">
+          {issue.isBeginnerFriendly && (
+            <span
+              class="text-xs px-2 py-0.5 rounded-full bg-green-100 text-green-700 font-medium"
+              title={
+                issue.beginnerSource === 'label'
+                  ? 'The maintainers labelled this a good first issue'
+                  : 'Estimated from issue size and activity, not labelled by maintainers'
+              }
+            >
+              {issue.beginnerSource === 'label' ? 'Good first issue' : 'Looks beginner-friendly'}
+            </span>
+          )}
+
+          <span
+            class="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-600"
+            title={
+              issue.effortSource === 'label'
+                ? 'Effort estimated by the maintainers'
+                : 'Rough guess from the issue description, not a maintainer estimate'
+            }
+          >
+            {EFFORT_LABEL[issue.effort]}{issue.effortSource === 'inferred' ? '?' : ''}
+          </span>
+
+          <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-600">
+            {TYPE_LABEL[issue.contributionType]}
+          </span>
+
+          {issue.campaigns.map((campaign) => (
+            <span class="text-xs px-2 py-0.5 rounded-full bg-purple-100 text-purple-700">
+              {campaign}
+            </span>
+          ))}
+
+          {READINESS_NOTE[issue.readiness] && (
+            <span class="text-xs text-gray-500">{READINESS_NOTE[issue.readiness]}</span>
+          )}
+
+          {issue.commentCount > 0 && (
+            <span class="text-xs text-gray-400">{issue.commentCount} comments</span>
+          )}
+        </div>
+      </a>
+    </li>
+  ))}
+</ul>

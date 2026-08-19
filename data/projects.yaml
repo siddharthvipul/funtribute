@@ -10,7 +10,6 @@
   contribution_types: [code, docs, testing, translation]
   skill_level: [intermediate, advanced]
   tags: [child-protection, case-management, gbv]
-  good_first_issues: true
 
 - name: HOPE
   slug: hope
@@ -24,7 +23,6 @@
   contribution_types: [code, docs, testing]
   skill_level: [intermediate, advanced]
   tags: [cash-transfer, humanitarian-aid, beneficiary-management]
-  good_first_issues: true
 
 - name: GeoSight
   slug: geosight
@@ -38,7 +36,6 @@
   contribution_types: [code, docs, design, testing]
   skill_level: [intermediate, advanced]
   tags: [geospatial, data-visualization, mapping, gis]
-  good_first_issues: true
 
 - name: Somleng
   slug: somleng
@@ -52,7 +49,6 @@
   contribution_types: [code, docs, testing]
   skill_level: [intermediate, advanced]
   tags: [communications, early-warning, telephony, sms, voice]
-  good_first_issues: true
 
 - name: Rahat
   slug: rahat
@@ -66,7 +62,6 @@
   contribution_types: [code, docs, testing, community]
   skill_level: [intermediate, advanced]
   tags: [blockchain, aid-distribution, humanitarian-aid]
-  good_first_issues: true
 
 - name: VaccineLedger
   slug: vaccine-ledger
@@ -80,4 +75,3 @@
   contribution_types: [code, docs, testing]
   skill_level: [intermediate, advanced]
   tags: [vaccine, supply-chain, blockchain, health]
-  good_first_issues: false

@@ -1,5 +1,6 @@
 import { useState, useCallback, useMemo } from 'react';
-import type { Project, FilterState } from '../types';
+import type { Project, FilterState, TechIndex, TechEntry } from '../types';
+import { buildTechIndex } from '../lib/taxonomy/tech';
 import { ProjectCard } from './ProjectCard';
 import { SearchBar } from './SearchBar';
 import { FilterSidebar } from './FilterSidebar';
@@ -7,6 +8,7 @@ import { FilterSidebar } from './FilterSidebar';
 interface Props {
   projects: Project[];
   techOptions: string[];
+  techTaxonomy: TechEntry[];
 }
 
 const INITIAL_FILTER: FilterState = {
@@ -19,10 +21,17 @@ const INITIAL_FILTER: FilterState = {
   sortBy: 'activity',
 };
 
-function filterProjects(projects: Project[], filter: FilterState): Project[] {
+function filterProjects(projects: Project[], filter: FilterState, techIndex: TechIndex): Project[] {
   return projects.filter((p) => {
+    const projectTech = p.techRefs.map((ref) => ref.id);
     if (filter.sdgs.length > 0 && !filter.sdgs.some((s) => p.sdgs.includes(s))) return false;
-    if (filter.tech.length > 0 && !filter.tech.some((t) => p.tech.includes(t))) return false;
+    // Hierarchical: selecting "javascript" also matches a React-only project.
+    if (
+      filter.tech.length > 0 &&
+      !filter.tech.some((t) => techIndex.match(t, projectTech) !== null)
+    ) {
+      return false;
+    }
     if (filter.contributionTypes.length > 0 && !filter.contributionTypes.some((c) => p.contributionTypes.includes(c))) return false;
     if (filter.skillLevel.length > 0 && !filter.skillLevel.some((s) => p.skillLevel.includes(s))) return false;
     if (filter.category.length > 0 && !filter.category.includes(p.category)) return false;
@@ -41,11 +50,12 @@ function sortProjects(projects: Project[], sortBy: FilterState['sortBy']): Proje
     case 'activity':
       return sorted.sort((a, b) => b.contributorCount - a.contributorCount);
     case 'beginner-friendly':
-      return sorted.sort((a, b) => {
-        const aScore = (a.goodFirstIssues ? 100 : 0) + a.goodFirstIssuesList.length;
-        const bScore = (b.goodFirstIssues ? 100 : 0) + b.goodFirstIssuesList.length;
-        return bScore - aScore;
-      });
+      // Rank on work a newcomer can actually start, not on a self-declared flag.
+      return sorted.sort(
+        (a, b) =>
+          b.issueCounts.beginnerReady - a.issueCounts.beginnerReady ||
+          b.issueCounts.ready - a.issueCounts.ready,
+      );
     case 'recently-updated':
       return sorted.sort((a, b) => {
         if (!a.lastCommitDate) return 1;
@@ -57,17 +67,19 @@ function sortProjects(projects: Project[], sortBy: FilterState['sortBy']): Proje
   }
 }
 
-export function Catalog({ projects, techOptions }: Props) {
+export function Catalog({ projects, techOptions, techTaxonomy }: Props) {
   const [filter, setFilter] = useState<FilterState>(INITIAL_FILTER);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+
+  const techIndex = useMemo(() => buildTechIndex(techTaxonomy), [techTaxonomy]);
 
   const handleSearchChange = useCallback((query: string) => {
     setFilter((prev) => ({ ...prev, searchQuery: query }));
   }, []);
 
   const filtered = useMemo(
-    () => sortProjects(filterProjects(projects, filter), filter.sortBy),
-    [projects, filter],
+    () => sortProjects(filterProjects(projects, filter, techIndex), filter.sortBy),
+    [projects, filter, techIndex],
   );
 
   return (
@@ -100,7 +112,7 @@ export function Catalog({ projects, techOptions }: Props) {
       <div className="flex gap-8">
         {/* Desktop sidebar */}
         <aside className="hidden lg:block w-64 shrink-0">
-          <FilterSidebar filterState={filter} onFilterChange={setFilter} techOptions={techOptions} />
+          <FilterSidebar filterState={filter} onFilterChange={setFilter} techOptions={techOptions} techIndex={techIndex} />
         </aside>
 
         {/* Mobile filter drawer */}
@@ -116,7 +128,7 @@ export function Catalog({ projects, techOptions }: Props) {
                   </svg>
                 </button>
               </div>
-              <FilterSidebar filterState={filter} onFilterChange={setFilter} techOptions={techOptions} />
+              <FilterSidebar filterState={filter} onFilterChange={setFilter} techOptions={techOptions} techIndex={techIndex} />
             </div>
           </div>
         )}
@@ -129,7 +141,7 @@ export function Catalog({ projects, techOptions }: Props) {
           {filtered.length > 0 ? (
             <div className="grid sm:grid-cols-2 gap-4">
               {filtered.map((project) => (
-                <ProjectCard key={project.slug} project={project} />
+                <ProjectCard key={project.slug} project={project} techIndex={techIndex} />
               ))}
             </div>
           ) : (

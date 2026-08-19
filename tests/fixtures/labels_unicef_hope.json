@@ -1,0 +1,362 @@
+[
+  {
+    "id": 7829270329,
+    "node_id": "LA_kwDODGOEYc8AAAAB0qkvOQ",
+    "url": "https://api.github.com/repos/unicef/hope/labels/analysis",
+    "name": "analysis",
+    "color": "e99695",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 4618148482,
+    "node_id": "LA_kwDODGOEYc8AAAABE0Nagg",
+    "url": "https://api.github.com/repos/unicef/hope/labels/backend",
+    "name": "backend",
+    "color": "EAC812",
+    "default": false,
+    "description": "Changes in BE code"
+  },
+  {
+    "id": 9559603074,
+    "node_id": "LA_kwDODGOEYc8AAAACOcv3gg",
+    "url": "https://api.github.com/repos/unicef/hope/labels/backend%20needed",
+    "name": "backend needed",
+    "color": "111801",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 4462517215,
+    "node_id": "LA_kwDODGOEYc8AAAABCfyb3w",
+    "url": "https://api.github.com/repos/unicef/hope/labels/blocked",
+    "name": "blocked",
+    "color": "BC0D31",
+    "default": false,
+    "description": "Another PR has to be merged before this is unblocked"
+  },
+  {
+    "id": 1550352331,
+    "node_id": "MDU6TGFiZWwxNTUwMzUyMzMx",
+    "url": "https://api.github.com/repos/unicef/hope/labels/bug",
+    "name": "bug",
+    "color": "d73a4a",
+    "default": true,
+    "description": "Something isn't working"
+  },
+  {
+    "id": 9109255092,
+    "node_id": "LA_kwDODGOEYc8AAAACHvQztA",
+    "url": "https://api.github.com/repos/unicef/hope/labels/conflicts",
+    "name": "conflicts",
+    "color": "d04b92",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 9109256005,
+    "node_id": "LA_kwDODGOEYc8AAAACHvQ3RQ",
+    "url": "https://api.github.com/repos/unicef/hope/labels/coverage",
+    "name": "coverage",
+    "color": "cfc2c4",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 2849122802,
+    "node_id": "MDU6TGFiZWwyODQ5MTIyODAy",
+    "url": "https://api.github.com/repos/unicef/hope/labels/dependencies",
+    "name": "dependencies",
+    "color": "0366d6",
+    "default": false,
+    "description": "Pull requests that update a dependency file"
+  },
+  {
+    "id": 7829272594,
+    "node_id": "LA_kwDODGOEYc8AAAAB0qk4Eg",
+    "url": "https://api.github.com/repos/unicef/hope/labels/dev",
+    "name": "dev",
+    "color": "96A618",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 5730593931,
+    "node_id": "LA_kwDODGOEYc8AAAABVZHsiw",
+    "url": "https://api.github.com/repos/unicef/hope/labels/devops",
+    "name": "devops",
+    "color": "F138B9",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 1550352332,
+    "node_id": "MDU6TGFiZWwxNTUwMzUyMzMy",
+    "url": "https://api.github.com/repos/unicef/hope/labels/documentation",
+    "name": "documentation",
+    "color": "0075ca",
+    "default": true,
+    "description": "Improvements or additions to documentation"
+  },
+  {
+    "id": 1550352333,
+    "node_id": "MDU6TGFiZWwxNTUwMzUyMzMz",
+    "url": "https://api.github.com/repos/unicef/hope/labels/duplicate",
+    "name": "duplicate",
+    "color": "cfd3d7",
+    "default": true,
+    "description": "This issue or pull request already exists"
+  },
+  {
+    "id": 4618152765,
+    "node_id": "LA_kwDODGOEYc8AAAABE0NrPQ",
+    "url": "https://api.github.com/repos/unicef/hope/labels/e2e",
+    "name": "e2e",
+    "color": "D4C5F9",
+    "default": false,
+    "description": "E2E testing"
+  },
+  {
+    "id": 1550352334,
+    "node_id": "MDU6TGFiZWwxNTUwMzUyMzM0",
+    "url": "https://api.github.com/repos/unicef/hope/labels/enhancement",
+    "name": "enhancement",
+    "color": "a2eeef",
+    "default": true,
+    "description": "New feature or request"
+  },
+  {
+    "id": 11506915170,
+    "node_id": "LA_kwDODGOEYc8AAAACrd2XYg",
+    "url": "https://api.github.com/repos/unicef/hope/labels/ephemeral",
+    "name": "ephemeral",
+    "color": "3A75AB",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 4839821199,
+    "node_id": "LA_kwDODGOEYc8AAAABIHnPjw",
+    "url": "https://api.github.com/repos/unicef/hope/labels/for%20some%20other%20day",
+    "name": "for some other day",
+    "color": "000000",
+    "default": false,
+    "description": "Won't do right now"
+  },
+  {
+    "id": 4618149060,
+    "node_id": "LA_kwDODGOEYc8AAAABE0NcxA",
+    "url": "https://api.github.com/repos/unicef/hope/labels/frontend",
+    "name": "frontend",
+    "color": "15ECD0",
+    "default": false,
+    "description": "Changes in FE code"
+  },
+  {
+    "id": 7863155573,
+    "node_id": "LA_kwDODGOEYc8AAAAB1K47dQ",
+    "url": "https://api.github.com/repos/unicef/hope/labels/frontend%20needed",
+    "name": "frontend needed",
+    "color": "4E4820",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 4490446111,
+    "node_id": "LA_kwDODGOEYc8AAAABC6bFHw",
+    "url": "https://api.github.com/repos/unicef/hope/labels/gf",
+    "name": "gf",
+    "color": "894C7F",
+    "default": false,
+    "description": "grievance and feedback"
+  },
+  {
+    "id": 10236873404,
+    "node_id": "LA_kwDODGOEYc8AAAACYipKvA",
+    "url": "https://api.github.com/repos/unicef/hope/labels/github_actions",
+    "name": "github_actions",
+    "color": "000000",
+    "default": false,
+    "description": "Pull requests that update GitHub Actions code"
+  },
+  {
+    "id": 5637920745,
+    "node_id": "LA_kwDODGOEYc8AAAABUAvX6Q",
+    "url": "https://api.github.com/repos/unicef/hope/labels/Global%20Program%20Filter",
+    "name": "Global Program Filter",
+    "color": "BFEA7A",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 1550352336,
+    "node_id": "MDU6TGFiZWwxNTUwMzUyMzM2",
+    "url": "https://api.github.com/repos/unicef/hope/labels/good%20first%20issue",
+    "name": "good first issue",
+    "color": "7057ff",
+    "default": true,
+    "description": "Good for newcomers"
+  },
+  {
+    "id": 1550352335,
+    "node_id": "MDU6TGFiZWwxNTUwMzUyMzM1",
+    "url": "https://api.github.com/repos/unicef/hope/labels/help%20wanted",
+    "name": "help wanted",
+    "color": "008672",
+    "default": true,
+    "description": "Extra attention is needed"
+  },
+  {
+    "id": 4577665507,
+    "node_id": "LA_kwDODGOEYc8AAAABENmh4w",
+    "url": "https://api.github.com/repos/unicef/hope/labels/hotfix",
+    "name": "hotfix",
+    "color": "6C063B",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 1550352337,
+    "node_id": "MDU6TGFiZWwxNTUwMzUyMzM3",
+    "url": "https://api.github.com/repos/unicef/hope/labels/invalid",
+    "name": "invalid",
+    "color": "e4e669",
+    "default": true,
+    "description": "This doesn't seem right"
+  },
+  {
+    "id": 3192093705,
+    "node_id": "MDU6TGFiZWwzMTkyMDkzNzA1",
+    "url": "https://api.github.com/repos/unicef/hope/labels/javascript",
+    "name": "javascript",
+    "color": "168700",
+    "default": false,
+    "description": "Pull requests that update Javascript code"
+  },
+  {
+    "id": 4587772751,
+    "node_id": "LA_kwDODGOEYc8AAAABEXPbTw",
+    "url": "https://api.github.com/repos/unicef/hope/labels/long-term-branch",
+    "name": "long-term-branch",
+    "color": "F72C6C",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 7584474058,
+    "node_id": "LA_kwDODGOEYc8AAAABxBHjyg",
+    "url": "https://api.github.com/repos/unicef/hope/labels/on%20hold",
+    "name": "on hold",
+    "color": "7C0374",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 10097869608,
+    "node_id": "LA_kwDODGOEYc8AAAACWeFDKA",
+    "url": "https://api.github.com/repos/unicef/hope/labels/on-hold-by-unicef",
+    "name": "on-hold-by-unicef",
+    "color": "A277A4",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 4490445163,
+    "node_id": "LA_kwDODGOEYc8AAAABC6bBaw",
+    "url": "https://api.github.com/repos/unicef/hope/labels/payment%20module",
+    "name": "payment module",
+    "color": "C74B12",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 3629513684,
+    "node_id": "LA_kwDODGOEYc7YVfvU",
+    "url": "https://api.github.com/repos/unicef/hope/labels/python",
+    "name": "python",
+    "color": "2b67c6",
+    "default": false,
+    "description": "Pull requests that update Python code"
+  },
+  {
+    "id": 10004311563,
+    "node_id": "LA_kwDODGOEYc8AAAACVE2uCw",
+    "url": "https://api.github.com/repos/unicef/hope/labels/python:uv",
+    "name": "python:uv",
+    "color": "2b67c6",
+    "default": false,
+    "description": "Pull requests that update python:uv code"
+  },
+  {
+    "id": 1550352338,
+    "node_id": "MDU6TGFiZWwxNTUwMzUyMzM4",
+    "url": "https://api.github.com/repos/unicef/hope/labels/question",
+    "name": "question",
+    "color": "d876e3",
+    "default": true,
+    "description": "Further information is requested"
+  },
+  {
+    "id": 7829862903,
+    "node_id": "LA_kwDODGOEYc8AAAAB0rI59w",
+    "url": "https://api.github.com/repos/unicef/hope/labels/refactoring",
+    "name": "refactoring",
+    "color": "0052cc",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 10230398101,
+    "node_id": "LA_kwDODGOEYc8AAAACYcd8lQ",
+    "url": "https://api.github.com/repos/unicef/hope/labels/resolve-conflicts",
+    "name": "resolve-conflicts",
+    "color": "020FA9",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 6439321941,
+    "node_id": "LA_kwDODGOEYc8AAAABf9BBVQ",
+    "url": "https://api.github.com/repos/unicef/hope/labels/selenium",
+    "name": "selenium",
+    "color": "9F18C7",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 6476814789,
+    "node_id": "LA_kwDODGOEYc8AAAABggxZxQ",
+    "url": "https://api.github.com/repos/unicef/hope/labels/sentry",
+    "name": "sentry",
+    "color": "2B1E4C",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 6711171912,
+    "node_id": "LA_kwDODGOEYc8AAAABkARbSA",
+    "url": "https://api.github.com/repos/unicef/hope/labels/staging",
+    "name": "staging",
+    "color": "DB5832",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 1550352339,
+    "node_id": "MDU6TGFiZWwxNTUwMzUyMzM5",
+    "url": "https://api.github.com/repos/unicef/hope/labels/wontfix",
+    "name": "wontfix",
+    "color": "ffffff",
+    "default": true,
+    "description": "This will not be worked on"
+  },
+  {
+    "id": 4757312090,
+    "node_id": "LA_kwDODGOEYc8AAAABG47SWg",
+    "url": "https://api.github.com/repos/unicef/hope/labels/work%20in%20progress",
+    "name": "work in progress",
+    "color": "FF0000",
+    "default": false,
+    "description": "Change doesn't need to be reviewed"
+  }
+]

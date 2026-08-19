@@ -1,0 +1,92 @@
+# Canonical tech vocabulary.
+#
+# Three things feed the tech list on a project, in descending authority:
+#   1. `tech:` in projects.yaml  - curated human intent
+#   2. GitHub /languages         - byte-weighted, filtered by MIN_LANGUAGE_SHARE
+#   3. issue tech_hint labels    - weak signal
+#
+# `parent` drives hierarchical filtering: selecting `javascript` also matches
+# React projects, and selecting `react` still matches plain JavaScript projects.
+#
+# Anything arriving from those sources that is not listed here lands in the
+# build report's unmapped list. Add it deliberately rather than letting the
+# filter sidebar grow unbounded.
+
+- id: javascript
+  display: JavaScript
+  kind: language
+  aliases: [js, ecmascript]
+
+- id: typescript
+  display: TypeScript
+  kind: language
+  parent: javascript
+  aliases: [ts]
+
+- id: nodejs
+  display: Node.js
+  kind: runtime
+  parent: javascript
+  aliases: [node]
+
+- id: react
+  display: React
+  kind: framework
+  parent: javascript
+  aliases: [reactjs]
+
+- id: python
+  display: Python
+  kind: language
+
+- id: django
+  display: Django
+  kind: framework
+  parent: python
+
+- id: ruby
+  display: Ruby
+  kind: language
+
+- id: rails
+  display: Ruby on Rails
+  kind: framework
+  parent: ruby
+  aliases: [ruby on rails, rubyonrails]
+
+- id: solidity
+  display: Solidity
+  kind: language
+
+- id: ethereum
+  display: Ethereum
+  kind: platform
+
+- id: docker
+  display: Docker
+  kind: infra
+  aliases: [dockerfile]
+
+- id: terraform
+  display: Terraform
+  kind: infra
+  aliases: [hcl]
+
+- id: shell
+  display: Shell
+  kind: infra
+  aliases: [bash, shell, makefile]
+
+- id: html
+  display: HTML
+  kind: language
+
+- id: css
+  display: CSS
+  kind: language
+  aliases: [scss, sass]
+
+- id: sql
+  display: SQL
+  kind: data
+  aliases: [plpgsql, postgresql, postgres]

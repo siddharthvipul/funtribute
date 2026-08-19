@@ -1,0 +1,137 @@
+[
+  {
+    "id": 475241661,
+    "node_id": "MDU6TGFiZWw0NzUyNDE2NjE=",
+    "url": "https://api.github.com/repos/primeroIMS/primero/labels/bug",
+    "name": "bug",
+    "color": "ee0701",
+    "default": true,
+    "description": null
+  },
+  {
+    "id": 6950351505,
+    "node_id": "LA_kwDOBFeYOM8AAAABnkXykQ",
+    "url": "https://api.github.com/repos/primeroIMS/primero/labels/Changes%20Needed",
+    "name": "Changes Needed",
+    "color": "FBCA04",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 1589032713,
+    "node_id": "MDU6TGFiZWwxNTg5MDMyNzEz",
+    "url": "https://api.github.com/repos/primeroIMS/primero/labels/dependencies",
+    "name": "dependencies",
+    "color": "0366d6",
+    "default": false,
+    "description": "Pull requests that update a dependency file"
+  },
+  {
+    "id": 475241664,
+    "node_id": "MDU6TGFiZWw0NzUyNDE2NjQ=",
+    "url": "https://api.github.com/repos/primeroIMS/primero/labels/duplicate",
+    "name": "duplicate",
+    "color": "cccccc",
+    "default": true,
+    "description": null
+  },
+  {
+    "id": 475241666,
+    "node_id": "MDU6TGFiZWw0NzUyNDE2NjY=",
+    "url": "https://api.github.com/repos/primeroIMS/primero/labels/enhancement",
+    "name": "enhancement",
+    "color": "84b6eb",
+    "default": true,
+    "description": null
+  },
+  {
+    "id": 6438440394,
+    "node_id": "LA_kwDOBFeYOM8AAAABf8LNyg",
+    "url": "https://api.github.com/repos/primeroIMS/primero/labels/Has%20Merge%20Conflict",
+    "name": "Has Merge Conflict",
+    "color": "CE150A",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 475241668,
+    "node_id": "MDU6TGFiZWw0NzUyNDE2Njg=",
+    "url": "https://api.github.com/repos/primeroIMS/primero/labels/help%20wanted",
+    "name": "help wanted",
+    "color": "128A0C",
+    "default": true,
+    "description": null
+  },
+  {
+    "id": 475241670,
+    "node_id": "MDU6TGFiZWw0NzUyNDE2NzA=",
+    "url": "https://api.github.com/repos/primeroIMS/primero/labels/invalid",
+    "name": "invalid",
+    "color": "e6e6e6",
+    "default": true,
+    "description": null
+  },
+  {
+    "id": 3537251742,
+    "node_id": "LA_kwDOBFeYOM7S1i2e",
+    "url": "https://api.github.com/repos/primeroIMS/primero/labels/javascript",
+    "name": "javascript",
+    "color": "168700",
+    "default": false,
+    "description": "Pull requests that update Javascript code"
+  },
+  {
+    "id": 5735559906,
+    "node_id": "LA_kwDOBFeYOM8AAAABVd2y4g",
+    "url": "https://api.github.com/repos/primeroIMS/primero/labels/merge",
+    "name": "merge",
+    "color": "0e8a16",
+    "default": false,
+    "description": ""
+  },
+  {
+    "id": 3050598905,
+    "node_id": "MDU6TGFiZWwzMDUwNTk4OTA1",
+    "url": "https://api.github.com/repos/primeroIMS/primero/labels/python",
+    "name": "python",
+    "color": "2b67c6",
+    "default": false,
+    "description": "Pull requests that update Python code"
+  },
+  {
+    "id": 475241671,
+    "node_id": "MDU6TGFiZWw0NzUyNDE2NzE=",
+    "url": "https://api.github.com/repos/primeroIMS/primero/labels/question",
+    "name": "question",
+    "color": "cc317c",
+    "default": true,
+    "description": null
+  },
+  {
+    "id": 3162499845,
+    "node_id": "MDU6TGFiZWwzMTYyNDk5ODQ1",
+    "url": "https://api.github.com/repos/primeroIMS/primero/labels/ruby",
+    "name": "ruby",
+    "color": "ce2d2d",
+    "default": false,
+    "description": "Pull requests that update Ruby code"
+  },
+  {
+    "id": 478605378,
+    "node_id": "MDU6TGFiZWw0Nzg2MDUzNzg=",
+    "url": "https://api.github.com/repos/primeroIMS/primero/labels/Try%20Primero",
+    "name": "Try Primero",
+    "color": "fbca04",
+    "default": false,
+    "description": null
+  },
+  {
+    "id": 475241672,
+    "node_id": "MDU6TGFiZWw0NzUyNDE2NzI=",
+    "url": "https://api.github.com/repos/primeroIMS/primero/labels/wontfix",
+    "name": "wontfix",
+    "color": "ffffff",
+    "default": true,
+    "description": null
+  }
+]

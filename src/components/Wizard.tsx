@@ -1,11 +1,13 @@
-import { useState } from 'react';
-import type { Project, WizardState, ContributionType, SkillLevel } from '../types';
+import { useState, useMemo } from 'react';
+import type { Project, WizardState, ContributionType, SkillLevel, TechEntry, TechIndex } from '../types';
+import { buildTechIndex } from '../lib/taxonomy/tech';
 import { SDG_DATA } from '../data/sdgs';
 import { ProjectCard } from './ProjectCard';
 
 interface Props {
   projects: Project[];
   techOptions: string[];
+  techTaxonomy: TechEntry[];
 }
 
 const CONTRIBUTION_TYPES: { type: ContributionType; label: string; icon: string }[] = [
@@ -23,7 +25,7 @@ const SKILL_LEVELS: { level: SkillLevel; label: string; description: string }[] 
   { level: 'advanced', label: 'Advanced', description: 'Experienced contributor, can tackle complex issues' },
 ];
 
-function scoreProject(project: Project, state: WizardState): number {
+function scoreProject(project: Project, state: WizardState, techIndex: TechIndex): number {
   let score = 0;
   for (const sdg of state.sdgs) {
     if (project.sdgs.includes(sdg)) score += 2;
@@ -31,13 +33,21 @@ function scoreProject(project: Project, state: WizardState): number {
   for (const ct of state.contributionTypes) {
     if (project.contributionTypes.includes(ct)) score += 2;
   }
+
+  // An exact stack match beats a related one, but related still counts: someone
+  // who knows React can contribute to a JavaScript project.
+  const projectTech = project.techRefs.map((ref) => ref.id);
   for (const tech of state.tech) {
-    if (project.tech.includes(tech)) score += 1;
+    const match = techIndex.match(tech, projectTech);
+    if (match === 'exact') score += 2;
+    else if (match) score += 1;
   }
+
   if (state.skillLevel && project.skillLevel.includes(state.skillLevel)) {
     score += 3;
   }
-  if (state.skillLevel === 'beginner' && project.goodFirstIssuesList.length > 0) {
+  // Reward work a beginner can actually start on, not a self-declared flag.
+  if (state.skillLevel === 'beginner' && project.issueCounts.beginnerReady > 0) {
     score += 2;
   }
   return score;
@@ -49,7 +59,8 @@ function getMatchLabel(score: number): { label: string; color: string } {
   return { label: 'Partial match', color: 'text-gray-500' };
 }
 
-export function Wizard({ projects, techOptions }: Props) {
+export function Wizard({ projects, techOptions, techTaxonomy }: Props) {
+  const techIndex = useMemo(() => buildTechIndex(techTaxonomy), [techTaxonomy]);
   const [step, setStep] = useState(0);
   const [state, setState] = useState<WizardState>({
     sdgs: [],
@@ -96,7 +107,7 @@ export function Wizard({ projects, techOptions }: Props) {
   };
 
   const scoredProjects = projects
-    .map((p) => ({ project: p, score: scoreProject(p, state) }))
+    .map((p) => ({ project: p, score: scoreProject(p, state, techIndex) }))
     .filter(({ score }) => score > 0)
     .sort((a, b) => b.score - a.score);
 
@@ -196,7 +207,7 @@ export function Wizard({ projects, techOptions }: Props) {
                     }`}
                     aria-pressed={selected}
                   >
-                    {tech}
+                    {techIndex.get(tech)?.display ?? tech}
                   </button>
                 );
               })}
@@ -250,7 +261,7 @@ export function Wizard({ projects, techOptions }: Props) {
                       <span className={`text-xs font-medium ${match.color} mb-1 block`}>
                         {match.label}
                       </span>
-                      <ProjectCard project={project} />
+                      <ProjectCard project={project} techIndex={techIndex} />
                     </div>
                   );
                 })}

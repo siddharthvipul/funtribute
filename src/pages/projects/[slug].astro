@@ -1,7 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { projects } from '../../data/load-projects';
+import { projects, getIssues, sortIssuesForDisplay, techIndex } from '../../data/load-projects';
 import { getSDG } from '../../data/sdgs';
+import IssueList from '../../components/IssueList.astro';
 import type { Project } from '../../types';
 
 export function getStaticPaths() {
@@ -12,6 +13,13 @@ export function getStaticPaths() {
 }
 
 const { project } = Astro.props as { project: Project };
+
+const issues = sortIssuesForDisplay(getIssues(project.slug));
+const availableIssues = issues.filter((i) => i.readiness === 'ready');
+const otherIssues = issues.filter((i) => i.readiness !== 'ready');
+const techDisplay = project.techRefs.map(
+  (ref) => techIndex.get(ref.id)?.display ?? ref.id,
+);
 
 const repoUrl = project.platform === 'github'
   ? `https://github.com/${project.github}`
@@ -73,7 +81,7 @@ const base = import.meta.env.BASE_URL;
     <section>
       <h2 class="text-lg font-semibold mb-3">Tech Stack</h2>
       <div class="flex flex-wrap gap-2">
-        {project.tech.map((t) => (
+        {techDisplay.map((t) => (
           <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium">{t}</span>
         ))}
       </div>
@@ -148,57 +156,48 @@ const base = import.meta.env.BASE_URL;
       </div>
     </section>
 
-    <!-- Good First Issues -->
-    {project.goodFirstIssuesList.length > 0 && (
+    <!-- Available work -->
+    {availableIssues.length > 0 && (
       <section>
-        <h2 class="text-lg font-semibold mb-3">
-          Good First Issues
-          <span class="text-sm font-normal text-gray-500 ml-2">({project.goodFirstIssuesList.length})</span>
+        <h2 class="text-lg font-semibold mb-1">
+          Available to pick up
+          <span class="text-sm font-normal text-gray-500 ml-2">({availableIssues.length})</span>
         </h2>
-        <div class="space-y-2">
-          {project.goodFirstIssuesList.map((issue) => (
-            <a
-              href={issue.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="block bg-white border border-gray-200 rounded-lg p-3 hover:border-green-300 hover:bg-green-50/50 transition-colors"
-            >
-              <span class="text-sm font-medium text-gray-900">{issue.title}</span>
-              <div class="flex gap-2 mt-1">
-                {issue.labels.map((label) => (
-                  <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">{label}</span>
-                ))}
-              </div>
-            </a>
-          ))}
-        </div>
+        <p class="text-sm text-gray-500 mb-3">
+          Open, unassigned, and still being maintained. A <span class="font-medium">?</span> means
+          Funtribute estimated the label rather than the maintainers setting it.
+        </p>
+        <IssueList issues={availableIssues} />
       </section>
     )}
 
-    <!-- Help Wanted Issues -->
-    {project.helpWantedIssuesList.length > 0 && (
+    {otherIssues.length > 0 && (
       <section>
-        <h2 class="text-lg font-semibold mb-3">
-          Help Wanted
-          <span class="text-sm font-normal text-gray-500 ml-2">({project.helpWantedIssuesList.length})</span>
+        <h2 class="text-lg font-semibold mb-1">
+          Other open issues
+          <span class="text-sm font-normal text-gray-500 ml-2">({otherIssues.length})</span>
         </h2>
-        <div class="space-y-2">
-          {project.helpWantedIssuesList.map((issue) => (
-            <a
-              href={issue.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="block bg-white border border-gray-200 rounded-lg p-3 hover:border-yellow-300 hover:bg-yellow-50/50 transition-colors"
-            >
-              <span class="text-sm font-medium text-gray-900">{issue.title}</span>
-              <div class="flex gap-2 mt-1">
-                {issue.labels.map((label) => (
-                  <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-0.5 rounded-full">{label}</span>
-                ))}
-              </div>
-            </a>
-          ))}
-        </div>
+        <p class="text-sm text-gray-500 mb-3">
+          Assigned, blocked, or untouched for a long time — worth a comment before starting work.
+        </p>
+        <IssueList issues={otherIssues} muted />
+      </section>
+    )}
+
+    {issues.length === 0 && project.fetchStatus === 'ok' && (
+      <section class="bg-white border border-gray-200 rounded-lg p-6 text-center">
+        <p class="text-gray-500 text-sm">
+          No open issues right now. Check the repository directly for ways to help.
+        </p>
+      </section>
+    )}
+
+    {project.fetchStatus !== 'ok' && project.fetchStatus !== 'skipped' && (
+      <section class="bg-amber-50 border border-amber-200 rounded-lg p-4">
+        <p class="text-amber-800 text-sm">
+          Issue data could not be loaded for this project at last build. This is a fetch
+          problem on our side, not a sign the project has no open work.
+        </p>
       </section>
     )}
 

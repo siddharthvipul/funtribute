@@ -1,12 +1,39 @@
 import { useState } from 'react';
-import type { FilterState, ContributionType, SkillLevel, ProjectCategory } from '../types';
+import type {
+  FilterState,
+  ContributionType,
+  SkillLevel,
+  ProjectCategory,
+  TechIndex,
+  TechKind,
+} from '../types';
 import { SDG_DATA } from '../data/sdgs';
 
 interface Props {
   filterState: FilterState;
   onFilterChange: (state: FilterState) => void;
   techOptions: string[];
+  techIndex: TechIndex;
 }
+
+/** Grouped so the list stays readable as the catalog grows past a handful of projects. */
+const TECH_KIND_ORDER: TechKind[] = [
+  'language',
+  'framework',
+  'runtime',
+  'infra',
+  'data',
+  'platform',
+];
+
+const TECH_KIND_LABEL: Record<TechKind, string> = {
+  language: 'Languages',
+  framework: 'Frameworks',
+  runtime: 'Runtimes',
+  infra: 'Infrastructure',
+  data: 'Data',
+  platform: 'Platforms',
+};
 
 function FilterSection({ title, children, count }: { title: string; children: React.ReactNode; count: number }) {
   const [open, setOpen] = useState(true);
@@ -73,7 +100,7 @@ const CONTRIBUTION_LABELS: Record<ContributionType, string> = {
   community: 'Community',
 };
 
-export function FilterSidebar({ filterState, onFilterChange, techOptions }: Props) {
+export function FilterSidebar({ filterState, onFilterChange, techOptions, techIndex }: Props) {
   const update = (partial: Partial<FilterState>) => {
     onFilterChange({ ...filterState, ...partial });
   };
@@ -132,14 +159,35 @@ export function FilterSidebar({ filterState, onFilterChange, techOptions }: Prop
       </FilterSection>
 
       <FilterSection title="Tech Stack" count={filterState.tech.length}>
-        {techOptions.map((tech) => (
-          <Checkbox
-            key={tech}
-            checked={filterState.tech.includes(tech)}
-            onChange={() => update({ tech: toggleInArray(filterState.tech, tech) })}
-            label={tech}
-          />
-        ))}
+        {TECH_KIND_ORDER.map((kind) => {
+          const inKind = techOptions.filter((id) => techIndex.get(id)?.kind === kind);
+          if (inKind.length === 0) return null;
+
+          return (
+            <div key={kind} className="mb-2">
+              <p className="text-xs uppercase tracking-wide text-gray-400 mt-2 mb-1">
+                {TECH_KIND_LABEL[kind]}
+              </p>
+              {inKind.map((id) => {
+                const entry = techIndex.get(id);
+                const parent = entry?.parent ? techIndex.get(entry.parent)?.display : null;
+                return (
+                  <Checkbox
+                    key={id}
+                    checked={filterState.tech.includes(id)}
+                    onChange={() => update({ tech: toggleInArray(filterState.tech, id) })}
+                    label={parent ? `${entry?.display} (${parent})` : (entry?.display ?? id)}
+                  />
+                );
+              })}
+            </div>
+          );
+        })}
+        {filterState.tech.length > 0 && (
+          <p className="text-xs text-gray-400 mt-2">
+            Related tech is included — selecting a language also matches its frameworks.
+          </p>
+        )}
       </FilterSection>
 
       <FilterSection title="Skill Level" count={filterState.skillLevel.length}>
